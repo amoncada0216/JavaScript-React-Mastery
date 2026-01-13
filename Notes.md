@@ -4,6 +4,8 @@
 
 > Type coercion is the automatic or implicit conversion of values from one data type to another (e.g., from string to number). This happens when the language expects a specific data type for an operation but receives a different one, and attempts to make the operation work without throwing an error. 
 
+> A method is a function that is stored as a property on an object and is called through that object.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Expressions
