@@ -1,129 +1,131 @@
-# JavaScript Mastery — A Long-Term Learning Log
+# JavaScript + React Mastery — Long-Term Learning Repository
 
-This repository documents my journey to **deep, professional-level understanding of JavaScript**, with a strong focus on the parts that actually matter for real-world development (and React).
+This repository documents my deliberate path toward **deep, professional-level mastery of JavaScript**, with React as the practical end goal.
 
-It is **not** a collection of tutorials or snippets.  
-It is a **thinking log**.
-
-I commit here every time a concept truly *clicks*.
-
----
-
-## Why this repository exists
-
-Most people “learn” JavaScript by memorizing syntax.  
-I decided to do the opposite.
-
-This repo exists to:
-
-- Build **predictable mental models**, not habits
-- Eliminate “magic” from JavaScript behavior
-- Train **reasoning**, not recall
-- Track progress honestly, step by step
-
-If I ever come back to this in 5, 10, or 20 years, the goal is simple:
-
-> Read this and remember *exactly* how and why things work.
+This is **not** a tutorial repo.  
+It is **not** a collection of snippets.  
+It is a record of *thinking*, mistakes, corrections, and mental models.
 
 ---
 
-## Structure
+## Purpose
 
-### 1. Learning Map
+The purpose of this repository is to make JavaScript **predictable**.
 
-The learning map defines **what is studied and in what order**.  
-Nothing is skipped. Nothing is rushed.
+Not “familiar”.  
+Not “usable”.  
+Predictable.
 
-It is organized roughly as:
-
-- Core programming foundations
-- JavaScript internals critical for React
-- Functions as behavior units
-- Data transformation
-- React-specific layers (later)
-
-Each section is only marked “done” when it is **predictable**, not just familiar.
-
----
-
-### 2. Notes
-
-The notes file is where the real work lives.
-
-It contains:
-- Mental models (boxes, references, execution flow)
-- Edge cases that broke my intuition
-- Corrections after being wrong
-- Rules distilled into single sentences
-- “Oh shit, now I get it” moments
-
-Nothing is polished.  
-Clarity > prettiness.
-
----
-
-### 3. Commits
-
-Each commit represents **real progress**, not activity.
-
-Commits happen when:
-- A concept stops being fragile
-- I can predict behavior without guessing
-- I can explain *why*, not just *what*
-
-This repo is intentionally slow-growing.
-
----
-
-## How this was studied
-
-- One concept at a time
-- No new tools unless explicitly allowed
-- Heavy use of prediction exercises
-- Frequent deliberate confusion and correction
-- No moving on until understanding is solid
-
-If something felt confusing, that was a signal to **slow down**, not speed up.
-
----
-
-## Current focus
-
-At the moment, the focus has been on:
-
-- Execution context and scope
-- Value vs reference
-- Immutability vs mutation
-- `this` binding
-- Destructuring defaults
-- `==` vs `===`
-- `||` vs `??`
-- Truthy / falsy edge cases
-- Predictable control flow
-
-These are the foundations everything else depends on.
-
----
-
-## Long-term goal
-
-To reach a point where:
-
-- JavaScript behavior feels **inevitable**, not surprising
-- React feels like a thin layer on top of known rules
-- Debugging is reasoning, not trial and error
+I am building an internal model of how JavaScript actually works so that:
+- Bugs can be reasoned about, not guessed
+- React behavior feels inevitable, not magical
 - Code changes are intentional, not hopeful
 
+This repo exists so that in 10–20 years I can come back and clearly see:
+> *How I learned to think, not just what I learned.*
+
 ---
 
-## Final note to future me
+## How this repository is used
 
-If you’re reading this years from now:
+### 1. `JavaScript + React Mastery Map.md`
 
-You were patient when it mattered.  
-You didn’t skip the hard parts.  
+This file defines the **learning scope and order**.
+
+- Topics are studied **one by one**
+- Nothing is skipped
+- Nothing is marked as complete until it is mentally stable
+- Sections 0–1 (JavaScript Core) are treated as **non-negotiable foundations**
+
+The map exists to prevent:
+- Rushing
+- Shallow understanding
+- Accidental gaps
+
+---
+
+### 2. `Notes.md`
+
+This is my **raw thinking log**.
+
+It contains:
+- Mental models
+- Diagrams described in words (“boxes”, references, execution flow)
+- Edge cases that broke my intuition
+- Corrections after being wrong
+- Rules rewritten until they make sense
+
+Notes are:
+- Personal
+- Unpolished
+- Honest
+
+Clarity > presentation.
+
+---
+
+### 3. `Sandbox.jsx`
+
+This is a **scratchpad**, not production code.
+
+Used for:
+- Running exercises
+- Verifying predictions
+- Breaking code on purpose
+- Isolating behaviors
+
+Nothing here is meant to be “clean”.  
+It exists purely to **observe behavior**.
+
+---
+
+### 4. `Study Prompt.md`
+
+This file defines the **rules of engagement** for how I study.
+
+It sets:
+- Teaching constraints
+- Pacing rules
+- Scope boundaries
+- Style expectations
+
+I use an AI tutor under these strict rules to:
+- Force prediction before explanation
+- Slow down when confused
+- Eliminate hand-wavy understanding
+
+This keeps the learning process **controlled and intentional**.
+
+---
+
+## Learning method
+
+The method is deliberately strict:
+
+- One concept at a time
+- Prediction before execution
+- Reasoning before answers
+- Confusion treated as a signal to slow down
+- No new tools unless explicitly allowed
+
+Progress is measured by:
+- Ability to predict outcomes
+- Ability to explain *why*
+- Reduction of “surprise” behavior
+
+---
+
+## Why this matters
+
+Most JavaScript problems are not syntax problems.
+They are **mental model problems**.
+
+This repository is an attempt to fix that permanently.
+
+If future me is reading this:
+
+You didn’t rush.  
+You didn’t skip foundations.  
 You chose understanding over speed.
 
 That choice compounds.
-
-Keep going.

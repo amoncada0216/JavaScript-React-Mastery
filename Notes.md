@@ -6,6 +6,9 @@
 
 > A method is a function that is stored as a property on an object and is called through that object.
 
+> A handler is a function whose purpose is to be called later in response to something else
+(an event, a callback, a condition, a loop, a framework trigger).
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Expressions
@@ -130,6 +133,32 @@ TypeError
 > Uncaught errors stop execution
 
 Errors propagate up the call stack until caught.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Precedence Rule
+
+?? cannot be mixed with || or && without parentheses.
+
+Doing so causes a SyntaxError.
+
+❌ Not allowed:
+
+a || b ?? c
+a ?? b || c
+
+✅ Allowed:
+
+(a || b) ?? c
+a || (b ?? c)
+
+Why
+
+ - || works on falsy values
+
+ - ?? works only on null / undefined
+
+ - Mixing them implicitly is ambiguous, so JS forces explicit grouping.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
