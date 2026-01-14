@@ -403,9 +403,7 @@ A pure function is a function where:
 }
 
 - Same inputs → same output
-
 - No external reads
-
 - No external writes
 
 # Impure Functions
@@ -421,10 +419,9 @@ function calculate(price) {
 }
 
 - Output depends on tax
-
 - If tax changes, result changes
-
 - Function behavior is not self-contained
+
 
 > Example (external write):
 
@@ -435,7 +432,6 @@ function addToTotal(x) {
 }
 
 - Modifies external state
-
 - Causes side effects
 
 # Side Effects
@@ -466,3 +462,38 @@ Pure = math function.
 Impure = function with memory or effects.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Default Parameters
+
+Default parameters assign a value only when an argument is undefined.
+
+They do not trigger for:
+
+ - null
+ - 0
+ - ""
+ - false
+ - Only for undefined.
+
+> Example 1:
+
+function greet(name = "Guest") {
+  return name;
+}
+
+greet("Ana");     // "Ana"
+greet();          // "Guest"
+
+No argument → name === undefined → default used.
+
+> Example 2:
+
+function show(count = 10) {
+  return count;
+}
+
+show(0);          // 0
+show(null);       // null
+show(undefined);  // 10
+
+Defaults trigger only on undefined.

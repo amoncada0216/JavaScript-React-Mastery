@@ -28,8 +28,8 @@
 - [x] Function declarations vs expressions
 - [x] Arrow functions (syntax + semantics)
 - [x] Higher-order functions
-- [ ] Pure vs impure functions
-- [ ] Default parameters
+- [x] Pure vs impure functions
+- [x] Default parameters
 - [ ] Closures in practice
 
 > React components ARE functions.
