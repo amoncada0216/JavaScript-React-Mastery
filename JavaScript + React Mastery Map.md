@@ -27,7 +27,7 @@
 ## 2. Functions (JS → React Bridge)
 - [x] Function declarations vs expressions
 - [x] Arrow functions (syntax + semantics)
-- [ ] Higher-order functions
+- [x] Higher-order functions
 - [ ] Pure vs impure functions
 - [ ] Default parameters
 - [ ] Closures in practice

@@ -252,6 +252,10 @@ while (i < 3) {
 
 # Function Declaration
 
+function add(a, b) {
+  return a + b;
+};
+
 Only function declarations are hoisted and callable before definition. Everything else is not.
 
 // ✅ works
@@ -260,9 +264,18 @@ sayHi();
 
 function sayHi() {}
 
+Use when:
+
+ - You want stable, named functions
+ - Order should not matter
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Function Expression
+
+const add = function (a, b) {
+  return a + b;
+};
 
 // ❌ ReferenceError
 
@@ -275,6 +288,11 @@ const sayHi = function () {};
 sayHi();
 
 const sayHi = () => {};
+
+Use when:
+
+ - Function is a value
+ - You want conditional or dynamic assignment
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -351,4 +369,100 @@ Arrow functions inherit what this already is.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Higher-Order Functions
 
+Is a function that takes another function as an argument or returns a function.
+
+Higher-order function = function that treats functions as data
+
+function apply(fn, value) {
+  return fn(value);
+}
+
+function double(x) {
+  return x * 2;
+}
+
+const result = apply(double, 5);
+
+console.log(result); // 10
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Pure Functions
+
+A pure function is a function where:
+
+ 1. The output depends only on its inputs
+ 2. It does not change anything outside itself
+
+ Both conditions must be true.
+
+ function add(a, b) {
+  return a + b;
+}
+
+- Same inputs → same output
+
+- No external reads
+
+- No external writes
+
+# Impure Functions
+
+An impure function breaks at least one of those rules.
+
+> Example (external read):
+
+let tax = 0.2;
+
+function calculate(price) {
+  return price * tax;
+}
+
+- Output depends on tax
+
+- If tax changes, result changes
+
+- Function behavior is not self-contained
+
+> Example (external write):
+
+let total = 0;
+
+function addToTotal(x) {
+  total += x;
+}
+
+- Modifies external state
+
+- Causes side effects
+
+# Side Effects
+
+It is any change that happens outside the function’s local scope.
+
+Common side effects:
+
+ - Mutating objects
+ - Changing variables
+ - Logging
+ - Making network calls
+ - Reading the current time
+
+Why this matters (especially for React)
+
+ - Pure functions are predictable
+ - Impure functions are context-dependent
+ - React components are expected to behave as if they were pure
+
+This is why:
+
+ - State updates are isolated
+ - Mutations cause bugs
+ - Predictability matters more than cleverness
+
+Pure = math function.
+Impure = function with memory or effects.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
