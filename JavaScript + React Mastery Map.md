@@ -1,13 +1,17 @@
-# JavaScript + React Mastery Map (Merged & Overlapping)
+# JavaScript → React Learning Path (Capability-Driven)
 
-## 0. Core Programming Foundations (Shared)
+## Phase 0 — Core Programming Foundations (Required First)
+
 - [x] Expressions vs statements
 - [x] Control flow (if, switch, loops)
 - [x] Truthy / falsy values
 - [x] Error handling basics
 - [x] Reading stack traces
 
-## 1. JavaScript Core (REACT-CRITICAL)
+> Do not move forward if stack traces still confuse you.
+
+## Phase 1 — JavaScript Core (Non-Negotiable)
+
 - [x] Execution context and call stack
 - [x] Lexical scope and scope chain
 - [x] Closures (creation and lifetime)
@@ -22,9 +26,10 @@
 - [x] Optional chaining (`?.`)
 - [x] Nullish coalescing (`??`)
 
-> ⚠️ If this section is weak, React feels unpredictable.
+> If this is weak, React will always feel random.
 
-## 2. Functions (JS → React Bridge)
+## Phase 2 — Functions (JS → React Bridge)
+
 - [x] Function declarations vs expressions
 - [x] Arrow functions (syntax + semantics)
 - [x] Higher-order functions
@@ -32,9 +37,10 @@
 - [x] Default parameters
 - [x] Closures in practice
 
-> React components ARE functions.
+> React components are functions with constraints.
 
-## 3. Data Transformation (JS → React CORE)
+## Phase 3 — Data Transformation (Job-Critical)
+
 - [ ] `map`
 - [ ] `filter`
 - [ ] `reduce`
@@ -43,9 +49,32 @@
 - [ ] Edge-case handling
 - [ ] Immutability in transformations
 
-> This is where most React job tests actually live.
+> Most React interviews secretly test this phase.
 
-## 4. JSX (React-specific, JS-powered)
+## Phase 4 — State Fundamentals (JS + React Boundary)
+
+- [ ] `useState` basics
+- [ ] Functional updates (`prev => next`)
+- [ ] Batching behavior
+- [ ] Derived vs source state
+- [ ] Resetting state correctly
+- [ ] Avoiding stale closures
+
+> This is where React stops feeling “magical”.
+
+## Phase 5 — Events & Closures (Bug Factory Zone)
+
+- [ ] Passing functions vs calling functions
+- [ ] Event objects
+- [ ] Closures inside handlers
+- [ ] Preventing default behavior
+- [ ] Parameterized handlers
+- [ ] Shared handlers across elements
+
+> ~50% of real React bugs live here.
+
+## Phase 6 — JSX (Syntax Layer)
+
 - [ ] JSX as JavaScript expressions
 - [ ] `{}` expression rules
 - [ ] Expressions vs statements in JSX
@@ -54,7 +83,10 @@
 - [ ] JSX fragments
 - [ ] Common JSX mistakes
 
-## 5. Components (React on top of JS)
+> JSX is JavaScript with rules, not HTML.
+
+## Phase 7 — Components (Composition Layer)
+
 - [ ] Function components
 - [ ] Props as arguments
 - [ ] Props immutability
@@ -64,27 +96,8 @@
 
 > Components = pure functions + UI.
 
-## 6. State (JS + React Boundary)
-- [ ] `useState` basics
-- [ ] Functional updates (`prev => next`)
-- [ ] Batching behavior
-- [ ] Derived vs source state
-- [ ] Resetting state correctly
-- [ ] Avoiding stale closures
+## Phase 8 — Controlled Inputs (Forms)
 
-> This is React arithmetic.
-
-## 7. Events & Closures (JS + React)
-- [ ] Passing functions vs calling functions
-- [ ] Event objects
-- [ ] Closures inside handlers
-- [ ] Preventing default behavior
-- [ ] Parameterized handlers
-- [ ] Shared handlers across elements
-
-> 50% of React bugs live here.
-
-## 8. Controlled Inputs (JS + React)
 - [ ] Controlled vs uncontrolled inputs
 - [ ] Single source of truth
 - [ ] Input → state → UI loop
@@ -92,27 +105,28 @@
 - [ ] Avoiding cursor bugs
 - [ ] Validation basics
 
-## 9. Conditional Rendering (Logic Layer)
+> If you can do this cleanly, you are employable.
+
+## Phase 9 — Conditional Rendering (UI Logic)
+
 - [ ] Logical `&&`
 - [ ] Ternary rendering
 - [ ] Empty / loading / error states
 - [ ] Truthy/falsy edge cases (`0`, `""`)
 - [ ] Conditional component trees
 
-## 10. Lists & Keys (JS + React)
+## Phase 10 — Lists & Keys (Identity & Stability)
+
 - [ ] Rendering arrays
 - [ ] Stable keys
 - [ ] Why index keys break UI
 - [ ] Filtering before render
 - [ ] Sorting immutably
 
-## 11. Styling & Side Effects
-- [ ] Inline styles as objects
-- [ ] Conditional styles
-- [ ] State-driven styles
-- [ ] Separation of logic vs presentation
+> Wrong keys = React lies to you.
 
-## 12. Effects & Async (JS → React)
+## Phase 11 — Effects & Async (React Runtime)
+
 - [ ] Side effects vs pure logic
 - [ ] `useEffect` mental model
 - [ ] Dependency arrays
@@ -120,39 +134,47 @@
 - [ ] Fetching data
 - [ ] Avoiding infinite loops
 
-## 13. Async JavaScript (Used by React)
+> Effects are not lifecycle methods.
+
+## Phase 12 — Async JavaScript (Support Layer)
+
 - [ ] Promises lifecycle
 - [ ] `async / await`
 - [ ] Error handling in async code
 - [ ] Sequential vs parallel execution
 - [ ] Race conditions (conceptual)
 
-## 14. Modules & Architecture
+## Phase 13 — Modules & Architecture
+
 - [ ] ES modules (`import` / `export`)
 - [ ] Named vs default exports
 - [ ] Module boundaries
 - [ ] Separation of concerns
 - [ ] File organization
 
-## 15. Testing & Specs (JS + React)
+## Phase 14 — Testing & Specs
+
 - [ ] Reading failing tests
 - [ ] Inferring requirements
 - [ ] Matching exact expectations
 - [ ] Debugging off-by-one errors
 - [ ] User-centric testing mindset
 
-## 16. Performance Awareness (Later)
+## Phase 15 — Performance Awareness (Later)
+
 - [ ] Re-render causes
 - [ ] Memoization concepts
 - [ ] `React.memo`
 - [ ] When NOT to optimize
 
-## 17. Advanced / JS-Heavy (DO NOT BLOCK ON)
+> Optimization without understanding is a bug.
+
+## Phase 16 — Advanced / JS-Heavy (Do NOT Block On)
+
 - [ ] Prototypes internals
 - [ ] Garbage collection details
 - [ ] WeakMap / WeakSet
 - [ ] Design patterns
 - [ ] Advanced memory profiling
 
-> Important, but **not** required for React proficiency.
-
+> Useful, but **not required** for React proficiency.
