@@ -497,3 +497,45 @@ show(null);       // null
 show(undefined);  // 10
 
 Defaults trigger only on undefined.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Closures in Practice
+
+A closure is a function that remembers variables from where it was created, even after that outer function has finished running.
+
+> Example 1 — basic closure
+
+function makeCounter() {
+  let count = 0;
+
+  return function () {
+    count += 1;
+    return count;
+  };
+}
+
+const counter = makeCounter();
+counter(); // 1
+counter(); // 2
+
+Why this works:
+
+ - makeCounter runs once
+ - It returns a function
+ - That function keeps access to count
+ - count stays alive because the inner function still references it
+
+> Example 2 — multiple closures, separate memory
+
+const a = makeCounter();
+const b = makeCounter();
+
+a(); // 1
+a(); // 2
+b(); // 1
+
+Why:
+
+ - Each call to makeCounter creates a new scope
+ - Each returned function closes over its own count

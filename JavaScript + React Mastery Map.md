@@ -30,7 +30,7 @@
 - [x] Higher-order functions
 - [x] Pure vs impure functions
 - [x] Default parameters
-- [ ] Closures in practice
+- [x] Closures in practice
 
 > React components ARE functions.
 
