@@ -539,3 +539,18 @@ Why:
 
  - Each call to makeCounter creates a new scope
  - Each returned function closes over its own count
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ # Map
+
+ Map "map" creates a new array by applying a function to each element of an existing array.
+
+ Key rules:
+
+ - Same length in → same length out
+ - Does not mutate the original array
+ - The callback’s return value becomes the new element
+
+Example 1 — basic transform
+
