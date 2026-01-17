@@ -41,9 +41,9 @@
 
 ## Phase 3 — Data Transformation (Job-Critical)
 
-- [ ] `map`
-- [ ] `filter`
-- [ ] `reduce`
+- [x] `map`
+- [x] `filter`
+- [x] `reduce`
 - [ ] String normalization
 - [ ] Defensive counting logic
 - [ ] Edge-case handling

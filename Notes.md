@@ -542,15 +542,234 @@ Why:
 
  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
- # Map
+# Map
 
- Map "map" creates a new array by applying a function to each element of an existing array.
+Map "map" creates a new array by applying a function to each element of an existing array.
 
- Key rules:
+Key rules:
 
  - Same length in → same length out
  - Does not mutate the original array
  - The callback’s return value becomes the new element
 
-Example 1 — basic transform
+> Example 1 — simple value transformation
 
+const nums = [1, 2, 3];
+
+const doubled = nums.map(n => n * 2);
+
+console.log(nums);
+// [1, 2, 3]
+
+console.log(doubled);
+// [2, 4, 6]
+
+> Example 2 — mapping objects to derived values
+
+const users = [
+  { name: "Ana", age: 20 },
+  { name: "Luis", age: 30 }
+];
+
+const ages = users.map(u => u.age + 1);
+
+console.log(users);
+// [{ name: "Ana", age: 20 }, { name: "Luis", age: 30 }]
+
+console.log(ages);
+// [21, 31]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Filter
+
+Creates a new array containing only the elements for which the callback returns a truthy value.
+
+Key rules
+
+ - Returns a new array
+ - Length can be shorter or equal to the original
+ - Does not mutate the original array
+ - Callback return value is coerced to boolean
+
+> Example 1 — filtering primitive values
+
+const nums = [1, 2, 3, 4];
+
+const evens = nums.filter(n => n % 2 === 0);
+
+console.log(nums);
+// [1, 2, 3, 4]
+
+console.log(evens);
+// [2, 4]
+
+> Example 2 — filtering objects by condition
+
+const users = [
+  { name: "Ana", active: true },
+  { name: "Luis", active: false }
+];
+
+const activeUsers = users.filter(u => u.active);
+
+console.log(users);
+// [{ name: "Ana", active: true }, { name: "Luis", active: false }]
+
+console.log(activeUsers);
+// [{ name: "Ana", active: true }]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Remainder
+
+a % b = a - (floor(a / b) × b)
+
+Example 1:
+
+10 % 3 = 1 → floor(10 / 3) = 3 → 10 − 3 × 3 = 1
+
+Example 2:
+
+1243 % 53 = 24 → floor(1243 / 53) = 23 → 1243 − 23 × 53 = 24
+
+# Is Number Odd? 
+
+obj.n % 2 === 1
+
+Example 1:
+
+2554 % 2 === 1 // false, remainder = 0
+
+Example 2:
+
+9 % 2 === 1 // true, remainder = 1
+
+# Is Number Even? 
+
+obj.n % 2 === 0
+
+Example 1:
+
+2554 % 2 === 0 // true, remainder = 0
+
+Example 2:
+
+9 % 2 === 1 // false, remainder = 1
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Reduce 
+
+Reduces an array to a single accumulated value by repeatedly applying a reducer function.
+
+> Syntax: array.reduce((accumulator, element, index, array) => newAccumulator, initialValue)
+
+Key rules
+
+ - Returns one value (any type)
+ - Accumulator carries state across iterations
+ - Callback must return the new accumulator
+ - Initial value controls accumulator type and first step
+
+> Example 1 — summing numbers
+
+const nums = [1, 2, 3];
+
+const sum = nums.reduce((acc, n) => acc + n, 0);
+
+console.log(nums);
+// [1, 2, 3]
+
+console.log(sum);
+// 6
+
+> Example 2 — building an object
+
+const items = ["a", "b", "a"];
+
+const counts = items.reduce((acc, item) => {
+  acc[item] = (acc[item] ?? 0) + 1;
+  return acc;
+}, {});
+
+console.log(items);
+// ["a", "b", "a"]
+
+console.log(counts);
+// { a: 2, b: 1 }
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# String Normalization
+
+Transforming strings into a consistent, comparable format by applying deterministic rules.
+
+1. Trimming (remove outer whitespace)
+
+> Purpose: remove accidental leading/trailing spaces.
+
+const raw = "   hello   ";
+const trimmed = raw.trim();
+
+console.log(trimmed); // "hello"
+
+2. Case normalization (lowercase)
+
+> Purpose: make comparisons case-insensitive.
+
+const raw = "HeLLo";
+const lower = raw.toLowerCase();
+
+console.log(lower); // "hello"
+
+3. Whitespace collapsing
+
+> Purpose: treat multiple spaces as one.
+
+const raw = "hello    world   again";
+const collapsed = raw.replace(/\s+/g, " ");
+
+console.log(collapsed); // "hello world again"
+
+4. Separator normalization (spaces → hyphens)
+
+> Purpose: URLs, slugs, IDs.
+
+const raw = "hello world again";
+const dashed = raw.replace(/\s+/g, "-");
+
+console.log(dashed); // "hello-world-again"
+
+5. Underscore normalization
+
+> Purpose: collapse repeated separators.
+
+const raw = "user__name___id";
+const normalized = raw.replace(/_+/g, "_");
+
+console.log(normalized); // "user_name_id"
+
+6. Accent / diacritic removal (Unicode normalization)
+
+> Purpose: make user input comparable across locales.
+
+const raw = "João";
+const ascii = raw
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "");
+
+console.log(ascii); // "Joao"
+
+7. Full normalization pipeline example
+
+const raw = "  João__Silva  ";
+
+const normalized = raw
+  .trim()
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .replace(/_+/g, "-");
+
+console.log(normalized); // "joao-silva"
