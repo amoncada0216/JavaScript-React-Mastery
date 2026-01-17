@@ -1,4 +1,4 @@
-# JavaScript → React Learning Path (Capability-Driven)
+# JavaScript → React Learning Path (Capability-Driven, Explicit)
 
 ## Phase 0 — Core Programming Foundations (Required First)
 
@@ -7,6 +7,12 @@
 - [x] Truthy / falsy values
 - [x] Error handling basics
 - [x] Reading stack traces
+
+@ Good basic knowledge (imperative, not React-critical):
+- [ ] for (classic counter loop)
+- [ ] while / do…while
+- [ ] for…of
+- [ ] for…in
 
 > Do not move forward if stack traces still confuse you.
 
@@ -44,10 +50,13 @@
 - [x] `map`
 - [x] `filter`
 - [x] `reduce`
-- [ ] String normalization
-- [ ] Defensive counting logic
-- [ ] Edge-case handling
-- [ ] Immutability in transformations
+- [x] String normalization
+- [x] Defensive counting logic
+- [x] Edge-case handling
+- [x] Immutability in transformations
+
+@ Declarative-first rule:
+- Prefer `map / filter / reduce` over loops for transformations
 
 > Most React interviews secretly test this phase.
 

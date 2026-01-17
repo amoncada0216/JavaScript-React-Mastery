@@ -558,26 +558,19 @@ const nums = [1, 2, 3];
 
 const doubled = nums.map(n => n * 2);
 
-console.log(nums);
-// [1, 2, 3]
+console.log(nums); // [1, 2, 3]
 
-console.log(doubled);
-// [2, 4, 6]
+console.log(doubled); // [2, 4, 6]
 
 > Example 2 — mapping objects to derived values
 
-const users = [
-  { name: "Ana", age: 20 },
-  { name: "Luis", age: 30 }
-];
+const users = [ { name: "Ana", age: 20 }, { name: "Luis", age: 30 }];
 
 const ages = users.map(u => u.age + 1);
 
-console.log(users);
-// [{ name: "Ana", age: 20 }, { name: "Luis", age: 30 }]
+console.log(users); // [{ name: "Ana", age: 20 }, { name: "Luis", age: 30 }]
 
-console.log(ages);
-// [21, 31]
+console.log(ages); // [21, 31]
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -773,3 +766,124 @@ const normalized = raw
   .replace(/_+/g, "-");
 
 console.log(normalized); // "joao-silva"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Defensive Counting Logic
+
+A pattern that increments or aggregates counts while guarding against invalid, missing, or unexpected values.
+
+> Syntax: count = condition ? count + 1 : count
+
+Key rules
+
+ - Always validate inputs before counting
+ - Define explicit defaults for absent values
+ - Avoid accidental NaN propagation
+ - Keep counting logic side-effect aware
+
+> Example 1 — counting only valid numbers
+
+const data = [1, 2, null, 2, "2", undefined];
+
+const counts = data.reduce((acc, x) => {
+  if (typeof x !== "number") return acc;
+  return { ...acc, total: (acc.total ?? 0) + 1 };
+}, {});
+
+console.log(counts); // { total: 3 }
+
+console.log(count); // 4
+
+> Example 2 — defensive frequency map
+
+const data = ["a", "b", "a", "", null, "b"];
+
+const freq = data.reduce((acc, x) => {
+  if (!x) return acc;
+  return { ...acc, [x]: (acc[x] ?? 0) + 1 };
+}, {});
+
+console.log(freq); // { a: 2, b: 2 }
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Edge-Case Handling
+
+A discipline of explicitly accounting for values that behave differently from the “normal” case during data transformation.
+
+> Syntax: result = data.reduce((acc, item) => guardedNextAcc, initialAcc)
+
+Key rules
+
+ - Never assume inputs are clean or consistent
+ - Handle falsy values intentionally (0, "", false)
+ - Guard against null, undefined, and type mismatches
+ - Make edge handling explicit in logic, not implicit
+
+> Example 1 — handling 0 vs falsy
+
+const data = [0, 1, 2];
+
+const result = data.reduce((acc, x) => {
+  if (typeof x !== "number") return acc;
+  if (x === 0) return acc;
+  return acc + x;
+}, 0);
+
+console.log(result); // 3
+
+> Example 2 — skipping null and undefined
+
+const data = [1, null, 2, undefined, 3];
+
+const result = data.reduce((acc, x) => {
+  if (x == null) return acc;
+  return acc + x;
+}, 0);
+
+console.log(result); // 6
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Immutability in Trandformations
+
+A discipline of producing new data structures instead of modifying existing ones during transformations.
+
+> Syntax: next = { ...prev, updatedKey: newValue }
+
+Key rules
+
+ - Never mutate the input data
+ - Avoid mutating accumulators unless explicitly intended
+ - Prefer returning new objects/arrays
+ - Reference sharing must be intentional and visible
+
+> Example 1 — immutable accumulator
+
+const data = [1, 2, 2];
+
+const result = data.reduce((acc, x) => {
+  return { ...acc, [x]: (acc[x] ?? 0) + 1 };
+}, {});
+
+console.log(result); // { 1: 1, 2: 2 }
+
+> Example 2 — mutation vs immutability contrast
+
+const data = [1, 2];
+
+const a = data.reduce((acc, x) => {
+  acc[x] = x;
+  return acc;
+}, {});
+
+const b = data.reduce((acc, x) => {
+  return { ...acc, [x]: x };
+}, {});
+
+console.log(a); // { 1: 1, 2: 2 }
+console.log(b); // { 1: 1, 2: 2 }
+
+
+
