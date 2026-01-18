@@ -9,7 +9,11 @@
 > A handler is a function whose purpose is to be called later in response to something else
 (an event, a callback, a condition, a loop, a framework trigger).
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+> Memoization is a technique that caches the result of a computation so that when the same inputs occur again, the cached result is returned instead of recomputing.
+
++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Expressions
 
@@ -65,19 +69,19 @@ Everything that is not falsy
 
 > Undefined happens automatically.
 
-  - Missing property
-    obj.missing // undefined
+- Missing property
+  obj.missing // undefined
 
-  - Variable declared but not assigned
-    let x;
-    x // undefined
+- Variable declared but not assigned
+  let x;
+  x // undefined
 
-  - Function with no return
-    function f() {}
-    f() // undefined
+- Function with no return
+  function f() {}
+  f() // undefined
 
-  - Explicit assignment
-    x = undefined;
+- Explicit assignment
+  x = undefined;
 
 undefined usually means:
 
@@ -89,19 +93,19 @@ undefined is what JavaScript gives you when nothing was provided.
 
 > Null is never automatic. It is always intentional.
 
-  - Explicit assignment
-    x = null;
+- Explicit assignment
+  x = null;
 
-  - API / backend response
-    {
-    user: null
-    }
+- API / backend response
+  {
+  user: null
+  }
 
-  - Resetting a value on purpose
-    currentUser = null;
+- Resetting a value on purpose
+  currentUser = null;
 
-  - Libraries / frameworks signaling ‘empty’
-    Common in JSON, databases, APIs.
+- Libraries / frameworks signaling ‘empty’
+  Common in JSON, databases, APIs.
 
 null usually means:
 
@@ -111,18 +115,20 @@ null is what humans or systems use to say “nothing, on purpose”.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
 # Errors
 
 SyntaxError
+
 - Code is grammatically invalid
 - Happens before execution
 
 ReferenceError
+
 - Variable does not exist
 - Happens at runtime
 
 TypeError
+
 - Value exists but is used incorrectly
 - Happens at runtime
 
@@ -154,11 +160,11 @@ a || (b ?? c)
 
 Why
 
- - || works on falsy values
+- || works on falsy values
 
- - ?? works only on null / undefined
+- ?? works only on null / undefined
 
- - Mixing them implicitly is ambiguous, so JS forces explicit grouping.
+- Mixing them implicitly is ambiguous, so JS forces explicit grouping.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -180,10 +186,10 @@ Same value AND same type
 
 No coercion. No surprises.
 
-1 === 1               // true
-1 === "1"             // false
-false === 0           // false
-null === undefined    // false
+1 === 1 // true
+1 === "1" // false
+false === 0 // false
+null === undefined // false
 
 Use this by default.
 
@@ -193,10 +199,10 @@ Allows type coercion before comparing
 
 JavaScript tries to make both sides the same type.
 
-1 == "1"            // true
-false == 0          // true
-"" == 0             // true
-null == undefined   // true
+1 == "1" // true
+false == 0 // true
+"" == 0 // true
+null == undefined // true
 
 This is why it’s dangerous.
 
@@ -208,26 +214,26 @@ This is why it’s dangerous.
 || (OR) — “return the first truthy, otherwise the last”
 ?? (Nullish coalescing) — “fallback ONLY on null or undefined”
 
-true && "hello"     // "hello" ✅
-false && "hello"   // false   ✅  
+true && "hello" // "hello" ✅
+false && "hello" // false ✅
 
-0 || 10     // 10   ❌ (falsy)
-0 ?? 10     // 0    ✅ (valid value)
+0 || 10 // 10 ❌ (falsy)
+0 ?? 10 // 0 ✅ (valid value)
 
-"" || "x"  // "x"  ❌
-"" ?? "x"  // ""   ✅
+"" || "x" // "x" ❌
+"" ?? "x" // "" ✅
 
 false || true // true ❌
 false ?? true // false ✅
 
-"" || "Unknown"     // "Unknown" ❌
-0 || "Unknown"      // "Unknown" ❌
-false || "Unknown"  // "Unknown" ❌
+"" || "Unknown" // "Unknown" ❌
+0 || "Unknown" // "Unknown" ❌
+false || "Unknown" // "Unknown" ❌
 
-"" ?? "Unknown"     // "" ✅
-0 ?? "Unknown"      // 0 ✅
-false ?? "Unknown"  // false ✅
-null ?? "Unknown"   // "Unknown" ✅
+"" ?? "Unknown" // "" ✅
+0 ?? "Unknown" // 0 ✅
+false ?? "Unknown" // false ✅
+null ?? "Unknown" // "Unknown" ✅
 undefined ?? "Unknown" // "Unknown" ✅
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -235,7 +241,7 @@ undefined ?? "Unknown" // "Unknown" ✅
 # For Loop
 
 for (let i = 0; i < 3; i++) {
-  console.log(i);
+console.log(i);
 }
 
 # While Loop
@@ -243,17 +249,16 @@ for (let i = 0; i < 3; i++) {
 let i = 0;
 
 while (i < 3) {
-  console.log(i);
-  i++;
+console.log(i);
+i++;
 }
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
 # Function Declaration
 
 function add(a, b) {
-  return a + b;
+return a + b;
 };
 
 Only function declarations are hoisted and callable before definition. Everything else is not.
@@ -266,15 +271,15 @@ function sayHi() {}
 
 Use when:
 
- - You want stable, named functions
- - Order should not matter
+- You want stable, named functions
+- Order should not matter
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Function Expression
 
 const add = function (a, b) {
-  return a + b;
+return a + b;
 };
 
 // ❌ ReferenceError
@@ -291,19 +296,19 @@ const sayHi = () => {};
 
 Use when:
 
- - Function is a value
- - You want conditional or dynamic assignment
+- Function is a value
+- You want conditional or dynamic assignment
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Arrow Functions (Basic behavior)
 
 const add1 = function (a, b) {
-  return a + b;
+return a + b;
 };
 
 const add2 = (a, b) => {
-  return a + b;
+return a + b;
 };
 
 console.log(add1(2, 3)); // 5
@@ -314,17 +319,17 @@ console.log(add2(2, 3)); // 5
 # Arrow Functions (With multiple statements)
 
 const logAndAdd = (a, b) => {
-  console.log(a);
-  return a + b;
+console.log(a);
+return a + b;
 };
 
 console.log(logAndAdd(2, 3)); // 2 5
 
 > When you use {} in an arrow function:
 
- - You must use return
+- You must use return
 
- - There is no implicit return
+- There is no implicit return
 
 > Multiple statements require an explicit return
 
@@ -354,13 +359,13 @@ console.log(makeUser()); // { name: "Ana" }
 
 > Regular functions:
 
- - Bind this when they are called
+- Bind this when they are called
 
 > Arrow functions:
 
- - Never bind this
+- Never bind this
 
- - Capture this from their surrounding scope
+- Capture this from their surrounding scope
 
 If the surrounding scope is a regular function that already bound this, the arrow will reuse it.
 
@@ -376,11 +381,11 @@ Is a function that takes another function as an argument or returns a function.
 Higher-order function = function that treats functions as data
 
 function apply(fn, value) {
-  return fn(value);
+return fn(value);
 }
 
 function double(x) {
-  return x * 2;
+return x \* 2;
 }
 
 const result = apply(double, 5);
@@ -393,13 +398,13 @@ console.log(result); // 10
 
 A pure function is a function where:
 
- 1. The output depends only on its inputs
- 2. It does not change anything outside itself
+1.  The output depends only on its inputs
+2.  It does not change anything outside itself
 
- Both conditions must be true.
+Both conditions must be true.
 
- function add(a, b) {
-  return a + b;
+function add(a, b) {
+return a + b;
 }
 
 - Same inputs → same output
@@ -415,20 +420,19 @@ An impure function breaks at least one of those rules.
 let tax = 0.2;
 
 function calculate(price) {
-  return price * tax;
+return price \* tax;
 }
 
 - Output depends on tax
 - If tax changes, result changes
 - Function behavior is not self-contained
 
-
 > Example (external write):
 
 let total = 0;
 
 function addToTotal(x) {
-  total += x;
+total += x;
 }
 
 - Modifies external state
@@ -440,23 +444,23 @@ It is any change that happens outside the function’s local scope.
 
 Common side effects:
 
- - Mutating objects
- - Changing variables
- - Logging
- - Making network calls
- - Reading the current time
+- Mutating objects
+- Changing variables
+- Logging
+- Making network calls
+- Reading the current time
 
 Why this matters (especially for React)
 
- - Pure functions are predictable
- - Impure functions are context-dependent
- - React components are expected to behave as if they were pure
+- Pure functions are predictable
+- Impure functions are context-dependent
+- React components are expected to behave as if they were pure
 
 This is why:
 
- - State updates are isolated
- - Mutations cause bugs
- - Predictability matters more than cleverness
+- State updates are isolated
+- Mutations cause bugs
+- Predictability matters more than cleverness
 
 Pure = math function.
 Impure = function with memory or effects.
@@ -469,32 +473,32 @@ Default parameters assign a value only when an argument is undefined.
 
 They do not trigger for:
 
- - null
- - 0
- - ""
- - false
- - Only for undefined.
+- null
+- 0
+- ""
+- false
+- Only for undefined.
 
 > Example 1:
 
 function greet(name = "Guest") {
-  return name;
+return name;
 }
 
-greet("Ana");     // "Ana"
-greet();          // "Guest"
+greet("Ana"); // "Ana"
+greet(); // "Guest"
 
 No argument → name === undefined → default used.
 
 > Example 2:
 
 function show(count = 10) {
-  return count;
+return count;
 }
 
-show(0);          // 0
-show(null);       // null
-show(undefined);  // 10
+show(0); // 0
+show(null); // null
+show(undefined); // 10
 
 Defaults trigger only on undefined.
 
@@ -507,12 +511,12 @@ A closure is a function that remembers variables from where it was created, even
 > Example 1 — basic closure
 
 function makeCounter() {
-  let count = 0;
+let count = 0;
 
-  return function () {
-    count += 1;
-    return count;
-  };
+return function () {
+count += 1;
+return count;
+};
 }
 
 const counter = makeCounter();
@@ -521,10 +525,10 @@ counter(); // 2
 
 Why this works:
 
- - makeCounter runs once
- - It returns a function
- - That function keeps access to count
- - count stays alive because the inner function still references it
+- makeCounter runs once
+- It returns a function
+- That function keeps access to count
+- count stays alive because the inner function still references it
 
 > Example 2 — multiple closures, separate memory
 
@@ -537,10 +541,10 @@ b(); // 1
 
 Why:
 
- - Each call to makeCounter creates a new scope
- - Each returned function closes over its own count
+- Each call to makeCounter creates a new scope
+- Each returned function closes over its own count
 
- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Map
 
@@ -548,15 +552,15 @@ Map "map" creates a new array by applying a function to each element of an exist
 
 Key rules:
 
- - Same length in → same length out
- - Does not mutate the original array
- - The callback’s return value becomes the new element
+- Same length in → same length out
+- Does not mutate the original array
+- The callback’s return value becomes the new element
 
 > Example 1 — simple value transformation
 
 const nums = [1, 2, 3];
 
-const doubled = nums.map(n => n * 2);
+const doubled = nums.map(n => n \* 2);
 
 console.log(nums); // [1, 2, 3]
 
@@ -580,10 +584,10 @@ Creates a new array containing only the elements for which the callback returns 
 
 Key rules
 
- - Returns a new array
- - Length can be shorter or equal to the original
- - Does not mutate the original array
- - Callback return value is coerced to boolean
+- Returns a new array
+- Length can be shorter or equal to the original
+- Does not mutate the original array
+- Callback return value is coerced to boolean
 
 > Example 1 — filtering primitive values
 
@@ -600,8 +604,8 @@ console.log(evens);
 > Example 2 — filtering objects by condition
 
 const users = [
-  { name: "Ana", active: true },
-  { name: "Luis", active: false }
+{ name: "Ana", active: true },
+{ name: "Luis", active: false }
 ];
 
 const activeUsers = users.filter(u => u.active);
@@ -626,7 +630,7 @@ Example 2:
 
 1243 % 53 = 24 → floor(1243 / 53) = 23 → 1243 − 23 × 53 = 24
 
-# Is Number Odd? 
+# Is Number Odd?
 
 obj.n % 2 === 1
 
@@ -638,7 +642,7 @@ Example 2:
 
 9 % 2 === 1 // true, remainder = 1
 
-# Is Number Even? 
+# Is Number Even?
 
 obj.n % 2 === 0
 
@@ -652,7 +656,7 @@ Example 2:
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Reduce 
+# Reduce
 
 Reduces an array to a single accumulated value by repeatedly applying a reducer function.
 
@@ -660,10 +664,10 @@ Reduces an array to a single accumulated value by repeatedly applying a reducer 
 
 Key rules
 
- - Returns one value (any type)
- - Accumulator carries state across iterations
- - Callback must return the new accumulator
- - Initial value controls accumulator type and first step
+- Returns one value (any type)
+- Accumulator carries state across iterations
+- Callback must return the new accumulator
+- Initial value controls accumulator type and first step
 
 > Example 1 — summing numbers
 
@@ -682,8 +686,8 @@ console.log(sum);
 const items = ["a", "b", "a"];
 
 const counts = items.reduce((acc, item) => {
-  acc[item] = (acc[item] ?? 0) + 1;
-  return acc;
+acc[item] = (acc[item] ?? 0) + 1;
+return acc;
 }, {});
 
 console.log(items);
@@ -702,7 +706,7 @@ Transforming strings into a consistent, comparable format by applying determinis
 
 > Purpose: remove accidental leading/trailing spaces.
 
-const raw = "   hello   ";
+const raw = " hello ";
 const trimmed = raw.trim();
 
 console.log(trimmed); // "hello"
@@ -720,7 +724,7 @@ console.log(lower); // "hello"
 
 > Purpose: treat multiple spaces as one.
 
-const raw = "hello    world   again";
+const raw = "hello world again";
 const collapsed = raw.replace(/\s+/g, " ");
 
 console.log(collapsed); // "hello world again"
@@ -738,7 +742,7 @@ console.log(dashed); // "hello-world-again"
 
 > Purpose: collapse repeated separators.
 
-const raw = "user__name___id";
+const raw = "user**name\_**id";
 const normalized = raw.replace(/_+/g, "_");
 
 console.log(normalized); // "user_name_id"
@@ -749,21 +753,21 @@ console.log(normalized); // "user_name_id"
 
 const raw = "João";
 const ascii = raw
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "");
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g, "");
 
 console.log(ascii); // "Joao"
 
 7. Full normalization pipeline example
 
-const raw = "  João__Silva  ";
+const raw = " João\_\_Silva ";
 
 const normalized = raw
-  .trim()
-  .toLowerCase()
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .replace(/_+/g, "-");
+.trim()
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g, "")
+.replace(/\_+/g, "-");
 
 console.log(normalized); // "joao-silva"
 
@@ -777,18 +781,18 @@ A pattern that increments or aggregates counts while guarding against invalid, m
 
 Key rules
 
- - Always validate inputs before counting
- - Define explicit defaults for absent values
- - Avoid accidental NaN propagation
- - Keep counting logic side-effect aware
+- Always validate inputs before counting
+- Define explicit defaults for absent values
+- Avoid accidental NaN propagation
+- Keep counting logic side-effect aware
 
 > Example 1 — counting only valid numbers
 
 const data = [1, 2, null, 2, "2", undefined];
 
 const counts = data.reduce((acc, x) => {
-  if (typeof x !== "number") return acc;
-  return { ...acc, total: (acc.total ?? 0) + 1 };
+if (typeof x !== "number") return acc;
+return { ...acc, total: (acc.total ?? 0) + 1 };
 }, {});
 
 console.log(counts); // { total: 3 }
@@ -800,8 +804,8 @@ console.log(count); // 4
 const data = ["a", "b", "a", "", null, "b"];
 
 const freq = data.reduce((acc, x) => {
-  if (!x) return acc;
-  return { ...acc, [x]: (acc[x] ?? 0) + 1 };
+if (!x) return acc;
+return { ...acc, [x]: (acc[x] ?? 0) + 1 };
 }, {});
 
 console.log(freq); // { a: 2, b: 2 }
@@ -816,19 +820,19 @@ A discipline of explicitly accounting for values that behave differently from th
 
 Key rules
 
- - Never assume inputs are clean or consistent
- - Handle falsy values intentionally (0, "", false)
- - Guard against null, undefined, and type mismatches
- - Make edge handling explicit in logic, not implicit
+- Never assume inputs are clean or consistent
+- Handle falsy values intentionally (0, "", false)
+- Guard against null, undefined, and type mismatches
+- Make edge handling explicit in logic, not implicit
 
 > Example 1 — handling 0 vs falsy
 
 const data = [0, 1, 2];
 
 const result = data.reduce((acc, x) => {
-  if (typeof x !== "number") return acc;
-  if (x === 0) return acc;
-  return acc + x;
+if (typeof x !== "number") return acc;
+if (x === 0) return acc;
+return acc + x;
 }, 0);
 
 console.log(result); // 3
@@ -838,8 +842,8 @@ console.log(result); // 3
 const data = [1, null, 2, undefined, 3];
 
 const result = data.reduce((acc, x) => {
-  if (x == null) return acc;
-  return acc + x;
+if (x == null) return acc;
+return acc + x;
 }, 0);
 
 console.log(result); // 6
@@ -854,17 +858,17 @@ A discipline of producing new data structures instead of modifying existing ones
 
 Key rules
 
- - Never mutate the input data
- - Avoid mutating accumulators unless explicitly intended
- - Prefer returning new objects/arrays
- - Reference sharing must be intentional and visible
+- Never mutate the input data
+- Avoid mutating accumulators unless explicitly intended
+- Prefer returning new objects/arrays
+- Reference sharing must be intentional and visible
 
 > Example 1 — immutable accumulator
 
 const data = [1, 2, 2];
 
 const result = data.reduce((acc, x) => {
-  return { ...acc, [x]: (acc[x] ?? 0) + 1 };
+return { ...acc, [x]: (acc[x] ?? 0) + 1 };
 }, {});
 
 console.log(result); // { 1: 1, 2: 2 }
@@ -874,16 +878,239 @@ console.log(result); // { 1: 1, 2: 2 }
 const data = [1, 2];
 
 const a = data.reduce((acc, x) => {
-  acc[x] = x;
-  return acc;
+acc[x] = x;
+return acc;
 }, {});
 
 const b = data.reduce((acc, x) => {
-  return { ...acc, [x]: x };
+return { ...acc, [x]: x };
 }, {});
 
 console.log(a); // { 1: 1, 2: 2 }
 console.log(b); // { 1: 1, 2: 2 }
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# useState Basics
 
+A React hook that stores component-local state and schedules re-renders when updated.
+
+> Syntax: const [state, setState] = useState(initial)
+
+Key rules
+
+- State updates are asynchronous and batched
+- Updating state replaces the value, it does not merge
+- Reading state gives the value from the render that created it
+- Setting state triggers a re-render
+
+> Example 1 — basic state update
+
+function Counter() {
+const [count, setCount] = React.useState(0);
+setCount(count + 1);
+console.log(count); // 0
+}
+
+> Example 2 — multiple updates in one render
+
+function Counter() {
+const [count, setCount] = React.useState(0);
+setCount(count + 1);
+setCount(count + 1);
+console.log(count); // 0
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Functional Updates
+
+A state update form that computes the next state from the most recent committed state.
+
+> Syntax: setState(prev => next)
+
+Key rules
+
+- Use when the next state depends on the previous state
+- Multiple functional updates are applied in order
+- Avoids stale closures
+- Works correctly with batched updates
+
+> Example 1 — avoiding stale state
+
+function Counter() {
+const [n, setN] = React.useState(0);
+setN(prev => prev + 1);
+setN(prev => prev + 1);
+console.log(n); // 0
+}
+
+> Example 2 — value update vs functional update
+
+function Counter() {
+const [n, setN] = React.useState(0);
+setN(n + 1);
+setN(n + 1);
+console.log(n); // 0
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Batching Behavior
+
+React groups multiple state updates into a single re-render for performance.
+
+> Mental Model:
+
+setState(a)
+setState(b)
+→ one re-render
+
+Key rules
+
+- Updates in the same event are batched
+- Functional updates are applied in order
+- Batching does not change render-time snapshots
+- One batch → one re-render
+
+> Example 1 — batched value updates
+
+function Example() {
+const [n, setN] = React.useState(0);
+
+function run() {
+setN(1);
+setN(2);
+}
+
+run();
+console.log(n);
+}
+// 0
+
+> Example 2 — batched functional updates
+
+function Example() {
+const [n, setN] = React.useState(0);
+
+function run() {
+setN(prev => prev + 1);
+setN(prev => prev + 1);
+}
+
+run();
+console.log(n);
+}
+// 0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Derived vs Source State
+
+A distinction between state that must be stored (source) and values that should be computed from it (derived).
+
+> Syntax: derived = compute(source)
+
+Key rules
+
+- Store the minimum necessary state
+- Do not store values that can be computed from existing state
+- Derived values should be calculated during render
+- Duplicated state causes inconsistencies and bugs
+
+Example 1 — derived value during render
+
+function Example() {
+const [items, setItems] = React.useState([1, 2, 3]);
+const count = items.length;
+console.log(count);
+}
+// 3
+
+Example 2 — duplicated state (anti-pattern)
+
+function Example() {
+const [items, setItems] = React.useState([1, 2, 3]);
+const [count, setCount] = React.useState(3);
+console.log(count);
+}
+// 3
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Resetting State Correctly
+
+The practice of returning component state to a known baseline without relying on stale values or accidental side effects.
+
+> Syntax: setState(initialValue)
+
+Key rules
+
+- Reset state by setting explicit values, not by “undoing”
+- Prefer resetting from source of truth, not derived state
+- Resetting state always schedules a new render
+- Reset logic must not depend on current render snapshots unless intentional
+
+> Example 1 — explicit reset
+
+function Example() {
+const [n, setN] = React.useState(5);
+setN(0);
+console.log(n);
+}
+// 5
+
+> Example 2 — reset from source
+
+function Example() {
+const initial = 0;
+const [n, setN] = React.useState(initial);
+setN(initial);
+console.log(n);
+}
+// 0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Avoiding Stale Closures
+
+The problem where a function “remembers” outdated state or props because it was created in an earlier render.
+
+> Syntax: setState(prev => next)
+
+Key rules
+
+- Functions capture values from the render they were created in
+- State updates do not retroactively update existing closures
+- Functional updates avoid stale state reads
+- Re-created functions get fresh state snapshots
+
+> Example 1 — stale closure
+
+function Example() {
+const [n, setN] = React.useState(0);
+
+function inc() {
+setN(n + 1);
+}
+
+setN(5);
+inc();
+console.log(n);
+}
+// 0
+
+> Example 2 — avoiding staleness
+
+function Example() {
+  const [n, setN] = React.useState(0);
+
+  function inc() {
+    setN(prev => prev + 1);
+  }
+
+  setN(5);
+  inc();
+  console.log(n);
+}
+// 0
