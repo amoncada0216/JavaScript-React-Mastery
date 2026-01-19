@@ -54,7 +54,7 @@ You must output **ONLY** the format below, filled for that topic.
 
 ### 2. Examples
 
-You MUST include **at least 2 examples**.
+You MUST include **as necessary amount of examples**.
 
 For EACH example:
 - Title: `Example X — <short description>`
@@ -140,5 +140,6 @@ The output must be:
 After the code block, include EXACTLY:
 
 Answer only:
-1. Three outputs, in order  
-2. One short sentence stating where mutation happens (if any) and why
+1. Outputs 
+2. One short sentence stating tested behavior
+(Any other question you consider valid to grant passing)

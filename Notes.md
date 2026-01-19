@@ -850,7 +850,7 @@ console.log(result); // 6
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-# Immutability in Trandformations
+# Immutability in Transformations
 
 A discipline of producing new data structures instead of modifying existing ones during transformations.
 
@@ -1114,3 +1114,671 @@ function Example() {
   console.log(n);
 }
 // 0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Passing Functions vs Calling Functions
+
+The distinction between giving React a function to run later versus executing it immediately during render.
+
+> Syntax: onClick={handler}
+
+Key rules
+
+ - Pass a function reference to event handlers
+ - Calling a function executes it during render
+ - Event handlers must be functions, not results
+ - Calling during render can cause unintended side effects
+
+> Example 1 — passing a function
+
+function Example() {
+  function handleClick() {
+    console.log("clicked");
+  }
+
+  return <button onClick={handleClick} />;
+}
+
+// Output when clicked:
+// clicked
+
+> Example 2 — calling a function
+
+function Example() {
+  function handleClick() {
+    console.log("clicked");
+  }
+
+  return <button onClick={handleClick()} />;
+}
+
+// Output during render:
+// clicked
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Event Objects
+
+An object React passes to event handlers containing information about the user interaction.
+
+> Syntax: function handler(event) { ... }
+
+Key rules
+
+ - The event is provided as the first argument to the handler
+ - Access data via properties on the event object
+ - Do not assume the event exists unless a handler is invoked
+ - Event handling does not change render-time state snapshots
+
+Example 1 — reading from the event
+
+function Example() {
+  function handleClick(e) {
+    console.log(e.type);
+  }
+
+  handleClick({ type: "click" });
+}
+// click
+
+> Example 2 — event argument is not automatic
+
+function Example() {
+  function handleClick(e) {
+    console.log(e);
+  }
+
+  handleClick();
+}
+// undefined
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Closures Inside Handlers
+
+Event handlers capture variables from the render in which they were created, which can lead to stale values when state changes later.
+
+>Syntax: handler = () => uses(renderSnapshot)
+
+Key rules
+
+ - Handlers close over render-time snapshots
+ - State updates do not update existing closures
+ - Functional updates read the latest state at update time
+ - Re-rendering recreates handlers with fresh closures
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Preventing Default Behavior
+
+Stopping the browser’s built-in action for an event so your handler controls what happens.
+ 
+> Syntax: 
+
+ function handler(e) {
+  e.preventDefault()
+}
+
+Key rules
+
+ - Default behavior is a browser action, not a React action
+ - Call event.preventDefault() inside the handler
+ - Preventing default does not stop React state updates by itself
+ - Use it mainly with forms, links, and keyboard events
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Parameterized Handlers
+
+A pattern for passing data into an event handler without executing it during render.
+
+> Syntax: onClick={() => handler(param)}
+
+Key rules
+
+ - Event handlers must be functions, not function calls
+ - Parameters are supplied by wrapping the handler in another function
+ - Calling the handler during render causes immediate execution
+ - Wrapped handlers are recreated on each render
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Shared Handlers Across Elements
+
+Using one handler function for multiple elements, with behavior determined by data passed at call time.
+
+> Syntax: onClick={(e) => handler(param, e)}
+
+Key rules
+
+ - A single handler can serve many elements
+ - Data is supplied via parameters or event properties
+ - Avoid creating many near-duplicate handlers
+ - Beware of stale closures when the handler reads state
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# JSX as JavaScript Expressions
+
+JSX is syntax that evaluates to JavaScript expressions producing React elements.
+
+> Syntax: const element = <Component prop={expression} />
+
+Key rules
+
+ - JSX can appear anywhere a JavaScript expression is allowed
+ - JSX must evaluate to a single value
+ - Statements are not allowed directly inside JSX
+ - Expressions are evaluated before rendering
+
+> Example 1 — JSX assigned from expression
+
+const value = 2 * 3;
+const element = <span>{value}</span>;
+
+console.log(value);
+// 6
+
+> Example 2 — JSX returned from function
+
+function render(value) {
+  return <div>{value + 1}</div>;
+}
+
+const result = render(4);
+
+console.log(result.props.children);
+// 5
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# `{}` Expression Rules
+
+Curly braces in JSX delimit a JavaScript expression whose evaluated value is embedded into the JSX output.
+
+> Syntax: <JSX>{expression}</JSX>
+
+Key rules
+
+ - Only expressions are allowed, not statements
+ - The expression must resolve to a single value
+ - undefined, null, and false render nothing
+ - The expression is evaluated immediately during render
+
+> Example 1 — valid expressions
+
+const a = 2;
+const b = 3;
+
+const el = <div>{a * b}</div>;
+
+console.log(el.props.children);
+// 6
+
+> Example 2 — expression returning nothing
+
+const value = null;
+
+const el = <span>{value}</span>;
+
+console.log(el.props.children);
+// null
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Expressions vs Statements in JSX
+
+JSX accepts JavaScript expressions but rejects statements because it must evaluate to a value.
+
+> Syntax: <JSX>{expression}</JSX>
+
+Key rules
+
+ - Statements do not return values
+ - Expressions always resolve to a value
+ - Control flow must be expressed via expressions, not keywords
+ - Invalid JSX fails at compile time
+
+> Example 1 — ternary expression
+
+const flag = true;
+
+const el = <div>{flag ? 1 : 2}</div>;
+
+console.log(el.props.children);
+// 1
+
+> Example 2 — logical expression
+
+const value = 0;
+
+const el = <span>{value && 10}</span>;
+
+console.log(el.props.children);
+// 0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Conditional Rendering Patterns
+
+Conditional rendering uses JavaScript expressions to decide which JSX value is produced.
+
+> Syntax: condition ? <A /> : <B />
+
+Key rules
+
+ - Conditions must be expressed as expressions
+ - Logical operators return values, not booleans
+ - Ternaries always return one of two values
+ - Non-rendered values evaluate to null, false, or undefined
+
+> Example 1 — logical AND rendering
+
+const show = true;
+
+const el = <div>{show && "OK"}</div>;
+
+console.log(el.props.children);
+// OK
+
+> Example 2 — ternary rendering
+
+const count = 0;
+
+const el = <span>{count ? count : "empty"}</span>;
+
+console.log(el.props.children);
+// empty
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Rendering null, false, undefined
+
+In JSX, null, false, and undefined are valid expression results that produce no rendered output.
+
+> Syntax: <JSX>{expressionReturningNullish}</JSX>
+
+Key rules
+
+ - These values render nothing
+ - They do not create DOM nodes
+ - They can appear as children safely
+ - Other falsy values like 0 and "" do render
+
+> Example 1 — null does not render
+
+const value = null;
+
+const el = <div>{value}</div>;
+
+console.log(el.props.children);
+// null
+
+
+> Example 2 — false does not render
+
+const flag = false;
+
+const el = <span>{flag && "X"}</span>;
+
+console.log(el.props.children);
+// false
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# JSX Fragments
+
+JSX fragments let you return multiple JSX elements as a single expression without adding an extra DOM node.
+
+> Syntax: 
+
+<>
+  <A />
+  <B />
+</>
+
+Key rules
+
+ - A fragment evaluates to one JSX value
+ - Fragments do not render wrapper elements
+ - Short syntax <>...</> cannot take props
+ - Fragment content follows normal JSX expression rules
+
+> Example 1 — fragment as single expression
+
+const el = (
+  <>
+    <span>1</span>
+    <span>2</span>
+  </>
+);
+
+console.log(el.props.children.length);
+// 2
+
+> Example 2 — fragment returned from function
+
+function render() {
+  return (
+    <>
+      <div>A</div>
+      <div>B</div>
+    </>
+  );
+}
+
+const result = render();
+
+console.log(result.props.children[0].props.children);
+// A
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Common JSX Mistakes
+
+Frequent errors caused by misunderstanding how JSX expressions are evaluated and constrained.
+
+> Syntax: <JSX>{expression}</JSX>
+
+Key rules
+
+ - Statements are not allowed inside JSX
+ - Logical operators return values, not booleans
+ - Falsy values like 0 still render
+ - JSX evaluates expressions immediately, not reactively
+
+> Example 1 — accidental rendering of 0
+
+const count = 0;
+
+const el = <div>{count && "A"}</div>;
+
+console.log(el.props.children);
+// 0
+
+> Example 2 — expression evaluated once
+
+let n = 0;
+
+const first = <div>{n && n + 1}</div>;
+
+n = 2;
+
+console.log(first.props.children);
+console.log(n);
+
+const second = <div>{n > 1 && n - 1}</div>;
+
+n = 0;
+
+console.log(second.props.children);
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Function Components
+
+A function component is a JavaScript function that returns a JSX expression or null.
+
+> Syntax:
+
+function Component(props) {
+  return <JSX />
+}
+
+Key rules
+
+ - Invoked by React, not manually
+ - Receives props as a single argument
+ - Must return JSX or null
+ - Must be pure with respect to props
+
+> Example 1 — function returns JSX
+
+function Box(props) {
+  return <div>{props.value}</div>;
+}
+
+const el = Box({ value: 3 });
+
+console.log(el.props.children);
+// 3
+
+> Example 2 — function returns null
+
+function Maybe(props) {
+  return props.show ? <span>OK</span> : null;
+}
+
+const el = Maybe({ show: false });
+
+console.log(el);
+// null
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Props as Arguments
+
+Props are plain JavaScript arguments passed into a function component when it is called.
+
+> Syntax:
+
+function Component(props) {
+  return <JSX />
+}
+
+Key rules
+
+ - Props are received as a single object
+ - Passing props is equivalent to passing function arguments
+ - Destructuring does not create copies
+ - Props values are fixed for that invocation
+
+> Example 1 — props as object argument
+
+function Label(props) {
+  return <span>{props.text}</span>;
+}
+
+const el = Label({ text: "A" });
+
+console.log(el.props.children);
+// A
+
+> Example 2 — destructured props
+
+function Add({ a, b }) {
+  return <div>{a + b}</div>;
+}
+
+const el = Add({ a: 2, b: 3 });
+
+console.log(el.props.children);
+// 5
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Props Immutability 
+
+Props immutability means a function component must treat its props as read-only inputs.
+
+> Syntax:
+
+function Component(props) {
+  return <JSX />
+}
+
+Key rules
+
+ - Props must not be reassigned or mutated
+ - Object props share references
+ - Mutating props causes side effects outside the component
+ - React assumes props are immutable
+
+Example 1 — immutable read
+
+function Show(props) {
+  return <span>{props.value}</span>;
+}
+
+const el = Show({ value: 5 });
+
+console.log(el.props.children);
+// 5
+
+Example 2 — mutating object prop
+
+function Bad(props) {
+  props.obj.count++;
+  return <div>{props.obj.count}</div>;
+}
+
+const data = { count: 1 };
+const el = Bad({ obj: data });
+
+console.log(el.props.children);
+// 2
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Components Composition
+
+Component composition is building components by combining other components through JSX.
+
+> Syntax:
+
+<Parent>
+  <Child />
+</Parent>
+
+Key rules
+
+ - Components are composed by nesting
+ - Parent controls what children are rendered
+ - Data flows top-down via props
+ - Composition does not merge component state
+
+> Example 1 — simple composition
+
+function Child(props) {
+  return <span>{props.value}</span>;
+}
+
+function Parent() {
+  return <div><Child value={3} /></div>;
+}
+
+const el = Parent();
+
+console.log(el.props.children.props.children.props.children);
+// 3
+
+> Example 2 — multiple children
+
+function A() {
+  return <i>A</i>;
+}
+
+function B() {
+  return <b>B</b>;
+}
+
+function Wrap() {
+  return (
+    <div>
+      <A />
+      <B />
+    </div>
+  );
+}
+
+const el = Wrap();
+
+console.log(el.props.children.length);
+// 2
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Children Prop
+
+children is a special prop that represents whatever is nested between a component’s opening and closing tags.
+
+> Syntax:
+
+function Component(props) {
+  return <JSX>{props.children}</JSX>;
+}
+
+Key rules
+
+ - children can be a value, an element, or an array
+ - children is passed like any other prop
+ - Parent controls the structure of children
+ - Components must not mutate children
+
+> Example 1 — single child
+
+function Box(props) {
+  return <div>{props.children}</div>;
+}
+
+const el = Box({ children: "A" });
+
+console.log(el.props.children);
+// A
+
+> Example 2 — multiple children
+
+function Wrap(props) {
+  return <section>{props.children}</section>;
+}
+
+const el = Wrap({
+  children: [
+    <span key="1">X</span>,
+    <span key="2">Y</span>
+  ]
+});
+
+console.log(el.props.children.length);
+// 2
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Component Re-Render Rules
+
+Re-render rules define when a function component is executed again to produce new JSX.
+
+> Syntax: 
+
+Component(props) -> JSX
+
+> Example 1 — new props trigger re-execution
+
+function Show(props) {
+  return <span>{props.value}</span>;
+}
+
+const a = Show({ value: 1 });
+const b = Show({ value: 2 });
+
+console.log(a.props.children);
+// 1
+console.log(b.props.children);
+// 2
+
+> Example 2 — same props still re-run
+
+function Count(props) {
+  return <div>{props.n}</div>;
+}
+
+const x = Count({ n: 3 });
+const y = Count({ n: 3 });
+
+console.log(x.props.children);
+// 3
+console.log(y.props.children);
+// 3
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -109,12 +109,12 @@
 
 ## Phase 5 — Events & Closures (Bug Factory Zone)
 
-- [ ] Passing functions vs calling functions
-- [ ] Event objects
-- [ ] Closures inside handlers
-- [ ] Preventing default behavior
-- [ ] Parameterized handlers
-- [ ] Shared handlers across elements
+- [x] Passing functions vs calling functions
+- [x] Event objects
+- [x] Closures inside handlers
+- [x] Preventing default behavior
+- [x] Parameterized handlers
+- [x] Shared handlers across elements
 
 @ PAUSE & PRACTICE (VERY IMPORTANT)
 - Combine Phase 4 + Phase 5 concepts
@@ -128,13 +128,13 @@
 
 ## Phase 6 — JSX (Syntax Layer)
 
-- [ ] JSX as JavaScript expressions
-- [ ] `{}` expression rules
-- [ ] Expressions vs statements in JSX
-- [ ] Conditional rendering patterns
-- [ ] Rendering `null`, `false`, `undefined`
-- [ ] JSX fragments
-- [ ] Common JSX mistakes
+- [x] JSX as JavaScript expressions
+- [x] `{}` expression rules
+- [x] Expressions vs statements in JSX
+- [x] Conditional rendering patterns
+- [x] Rendering `null`, `false`, `undefined`
+- [x] JSX fragments
+- [x] Common JSX mistakes
 
 @ PAUSE & PRACTICE
 - Rewrite JSX mentally as JavaScript
@@ -147,12 +147,12 @@
 
 ## Phase 7 — Components (Composition Layer)
 
-- [ ] Function components
-- [ ] Props as arguments
-- [ ] Props immutability
-- [ ] Component composition
-- [ ] Children prop
-- [ ] Component re-render rules
+- [x] Function components
+- [x] Props as arguments
+- [x] Props immutability
+- [x] Component composition
+- [x] Children prop
+- [x] Component re-render rules
 
 @ PAUSE & PRACTICE
 - Build small component trees
