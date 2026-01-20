@@ -1823,3 +1823,34 @@ text === "ab"
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+# Includes
+
+Checks whether something exists inside something else and returns a boolean.
+
+> Strings
+
+"apple".includes("ap");    // true
+"apple".includes("pp");    // true
+"apple".includes("z");     // false
+
+Rules:
+
+ - Case-sensitive
+ - Partial match
+ - Returns true or false
+
+"Apple".includes("ap");    // false
+"Apple".toLowerCase().includes("ap"); // true
+
+> Arrays
+
+["a", "b", "c"].includes("b"); // true
+["a", "b", "c"].includes("x"); // false
+
+Rules:
+
+ - Checks exact values
+ - Uses strict equality (===)
+ - No partial matching
+ 
+[1, 2, 3].includes("1"); // false

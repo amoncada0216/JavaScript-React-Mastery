@@ -1,5 +1,7 @@
 # JavaScript → React Learning Path (Capability-Driven, Explicit)
 
+---
+
 ## Phase 0 — Core Programming Foundations (Required First)
 
 - [x] Expressions vs statements
@@ -11,15 +13,12 @@
 @ PAUSE & PRACTICE
 - Write small programs that intentionally throw errors
 - Practice reading stack traces without running the code
-- Do not proceed until stack traces feel mechanical
 
-@ Good basic knowledge (imperative, not React-critical):
+@ Imperative basics (non-React-critical)
 - [ ] for (classic counter loop)
 - [ ] while / do…while
 - [ ] for…of
 - [ ] for…in
-
-> Do not move forward if stack traces still confuse you.
 
 ---
 
@@ -34,21 +33,22 @@
 - [x] Immutability vs mutation
 - [x] Type coercion rules
 - [x] `==` vs `===`
+
+---
+
+## Phase 2 — Language Mechanics & Syntax
+
 - [x] Destructuring
 - [x] Spread & rest operators
 - [x] Optional chaining (`?.`)
 - [x] Nullish coalescing (`??`)
-
-@ PAUSE & PRACTICE (CRITICAL)
-- Predict behavior of code before running it
-- Practice identifying mutation vs immutability bugs
-- Practice reasoning about references without logging
-
-> If this is weak, React will always feel random.
+- [ ] Defaulting patterns (`||`, `??`)
+- [ ] String → number coercion (`Number()`, `parseInt`)
+- [ ] Falsy checks in conditions (`if (!value)`)
 
 ---
 
-## Phase 2 — Functions (JS → React Bridge)
+## Phase 3 — Functions (JS → React Bridge)
 
 - [x] Function declarations vs expressions
 - [x] Arrow functions (syntax + semantics)
@@ -57,102 +57,62 @@
 - [x] Default parameters
 - [x] Closures in practice
 
-@ PAUSE & PRACTICE
-- Write functions that accidentally capture stale values
-- Rewrite them to be pure
-- Be able to explain *why* purity matters
-
-> React components are functions with constraints.
-
 ---
 
-## Phase 3 — Data Transformation (Job-Critical)
+## Phase 4 — Data Transformation (Job-Critical)
 
 - [x] `map`
 - [x] `filter`
 - [x] `reduce`
-- [x] String normalization
+- [x] Immutability in transformations
 - [x] Defensive counting logic
 - [x] Edge-case handling
-- [x] Immutability in transformations
-
-@ PAUSE & PRACTICE (MANDATORY)
-- Write transformations from scratch (no prediction-only)
-- Combine filtering, mapping, and aggregation
-- Handle `0`, `""`, `null`, `"1"` vs `1` explicitly
-- Stop only when edge cases stop surprising you
+- [x] String normalization
 
 @ Declarative-first rule:
-- Prefer `map / filter / reduce` over loops for transformations
-
-> Most React interviews secretly test this phase.
+- Prefer `map / filter / reduce` over loops
 
 ---
 
-## Phase 3.5 — JavaScript Essentials (Assumed in React)
-*(Placed between Phase 3 and Phase 4)*
-
-These are **tools**, not deep theory, but they **must be known** and are **used constantly in React**.
+## Phase 4.5 — JavaScript Essentials (Assumed Tools)
 
 ### Strings
-- [ ] `.includes()`
-- [ ] `.toLowerCase()` / `.toUpperCase()`
-- [ ] `.trim()`
-- [ ] `.startsWith()` / `.endsWith()`
-- [ ] `.length`
+- [x] `.includes()`
+- [x] `.startsWith()` / `.endsWith()`
+- [x] `.toLowerCase()` / `.toUpperCase()`
+- [x] `.trim()`
+- [x] `.length`
 
 ### Arrays
-- [ ] `.includes()`
+- [x] `.includes()`
 - [ ] `.some()`
 - [ ] `.every()`
 - [ ] `.find()`
 - [ ] `.findIndex()`
 - [ ] `.slice()`
 - [ ] `.concat()`
-
-### Booleans & Conditions
-- [ ] Short-circuit logic (`&&`, `||`)
-- [ ] Negation (`!`)
-- [ ] Guard clauses in expressions
-
-> Rule:  
-> These utilities are **assumed knowledge** and may be used freely in all later phases without reintroduction.
-
----
-
-## Phase 3.6 — JavaScript & React Assumptions (Explicit)
-
-These are **assumed primitives** that WILL appear naturally in React code.
-
-### JavaScript (Non-Optional)
 - [ ] `Array.isArray()`
-- [ ] `Object.keys() / Object.values() / Object.entries()`
+
+### Objects
+- [ ] `Object.keys()`
+- [ ] `Object.values()`
+- [ ] `Object.entries()`
 - [ ] Shallow copy patterns (`{ ...obj }`, `[...arr]`)
-- [ ] Optional chaining with functions (`fn?.()`)
-- [ ] Defaulting patterns (`||`, `??`)
-- [ ] String → number coercion (`Number()`, `parseInt`)
-- [ ] Falsy checks in conditions (`if (!value)`)
 
-### React-Specific Assumptions
-- [ ] JSX attribute spreading (`<Comp {...props} />`)
-- [ ] Inline functions in JSX
-- [ ] Event object reuse rules
-- [ ] Synthetic events (conceptual, not API)
-- [ ] `key` as identity, not index
-- [ ] State setters are async (conceptual)
-
-### Mental Model Rules (Explicit)
-- [ ] “Derived data is NOT state”
-- [ ] “Render ≠ commit”
-- [ ] “Re-render ≠ DOM update”
-- [ ] “Props/state are snapshots per render”
-
-> Rule:
-> Anything in Phase 3.5–3.6 is **allowed everywhere** later without warning.
+> Rule: These are **allowed everywhere** from this point on.
 
 ---
 
-## Phase 4 — State Fundamentals (JS + React Boundary)
+## Phase 5 — React Mental Model (Pre-State)
+
+- [ ] “Props/state are snapshots per render”
+- [ ] “Derived data is NOT state”
+- [ ] “Re-render ≠ DOM update”
+- [ ] “Render ≠ commit”
+
+---
+
+## Phase 6 — State Fundamentals (JS + React Boundary)
 
 - [x] `useState` basics
 - [x] Functional updates (`prev => next`)
@@ -160,17 +120,11 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [x] Derived vs source state
 - [x] Resetting state correctly
 - [x] Avoiding stale closures
-
-@ PAUSE & PRACTICE (MENTAL MODEL)
-- Predict state values across renders
-- Explain why logs show “old” values
-- Do NOT rely on UI yet — reason about renders only
-
-> This is where React stops feeling “magical”.
+- [x] State setters are async (conceptual)
 
 ---
 
-## Phase 5 — Events & Closures (Bug Factory Zone)
+## Phase 7 — Events & Closures
 
 - [x] Passing functions vs calling functions
 - [x] Event objects
@@ -178,37 +132,23 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [x] Preventing default behavior
 - [x] Parameterized handlers
 - [x] Shared handlers across elements
-
-@ PAUSE & PRACTICE (VERY IMPORTANT)
-- Combine Phase 4 + Phase 5 concepts
-- Click-driven state updates
-- Identify stale closures in handlers
-- This is where understanding *locks in*
-
-> ~50% of real React bugs live here.
+- [ ] Synthetic events (conceptual)
 
 ---
 
-## Phase 6 — JSX (Syntax Layer)
+## Phase 8 — JSX (Syntax Layer)
 
 - [x] JSX as JavaScript expressions
 - [x] `{}` expression rules
 - [x] Expressions vs statements in JSX
-- [x] Conditional rendering patterns
 - [x] Rendering `null`, `false`, `undefined`
 - [x] JSX fragments
 - [x] Common JSX mistakes
-
-@ PAUSE & PRACTICE
-- Rewrite JSX mentally as JavaScript
-- Predict rendering outcomes before running
-- Intentionally break JSX and explain why
-
-> JSX is JavaScript with rules, not HTML.
+- [ ] JSX attribute spreading (`<Comp {...props} />`)
 
 ---
 
-## Phase 7 — Components (Composition Layer)
+## Phase 9 — Components (Composition Layer)
 
 - [x] Function components
 - [x] Props as arguments
@@ -216,17 +156,11 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [x] Component composition
 - [x] Children prop
 - [x] Component re-render rules
-
-@ PAUSE & PRACTICE
-- Build small component trees
-- Predict re-renders
-- Practice passing data top-down only
-
-> Components = pure functions + UI.
+- [ ] `key` as identity (not index)
 
 ---
 
-## Phase 8 — Controlled Inputs (Forms)
+## Phase 10 — Controlled Inputs (Forms)
 
 - [x] Controlled vs uncontrolled inputs
 - [x] Single source of truth
@@ -235,15 +169,11 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [x] Avoiding cursor bugs
 - [x] Validation basics
 
-@ PAUSE & PRACTICE (EMPLOYABILITY CHECK)
-- Build forms without bugs
-- Handle typing, deletion, validation smoothly
-
-> If you can do this cleanly, you are employable.
+> **Employability checkpoint**
 
 ---
 
-## Phase 9 — Conditional Rendering (UI Logic)
+## Phase 11 — Conditional Rendering (UI Logic)
 
 - [ ] Logical `&&`
 - [ ] Ternary rendering
@@ -251,13 +181,9 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [ ] Truthy/falsy edge cases (`0`, `""`)
 - [ ] Conditional component trees
 
-@ PAUSE & PRACTICE
-- Design UI states before coding
-- Ensure no impossible states exist
-
 ---
 
-## Phase 10 — Lists & Keys (Identity & Stability)
+## Phase 12 — Lists & Identity
 
 - [ ] Rendering arrays
 - [ ] Stable keys
@@ -265,47 +191,29 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [ ] Filtering before render
 - [ ] Sorting immutably
 
-@ PAUSE & PRACTICE (INTERVIEW TRAP)
-- Break UIs intentionally with bad keys
-- Fix them and explain why it works
-
-> Wrong keys = React lies to you.
-
 ---
 
-## Phase 11 — Effects & Async (React Runtime)
+## Phase 13 — Effects & Async (React Runtime)
 
 - [ ] Side effects vs pure logic
 - [ ] `useEffect` mental model
 - [ ] Dependency arrays
 - [ ] Cleanup functions
-- [ ] Fetching data
 - [ ] Avoiding infinite loops
-
-@ PAUSE & PRACTICE (DO NOT RUSH)
-- Effects require time-based reasoning
-- Re-run examples mentally
-- Debug infinite loops deliberately
-
-> Effects are not lifecycle methods.
 
 ---
 
-## Phase 12 — Async JavaScript (Support Layer)
+## Phase 14 — Async JavaScript (Support Layer)
 
 - [ ] Promises lifecycle
 - [ ] `async / await`
 - [ ] Error handling in async code
 - [ ] Sequential vs parallel execution
-- [ ] Race conditions (conceptual)
-
-@ PAUSE & PRACTICE
-- Predict async order without running code
-- Practice failure paths
+- [ ] Race conditions
 
 ---
 
-## Phase 13 — Modules & Architecture
+## Phase 15 — Modules & Architecture
 
 - [ ] ES modules (`import` / `export`)
 - [ ] Named vs default exports
@@ -313,50 +221,30 @@ These are **assumed primitives** that WILL appear naturally in React code.
 - [ ] Separation of concerns
 - [ ] File organization
 
-@ PAUSE & PRACTICE
-- Refactor small projects
-- Enforce boundaries intentionally
-
 ---
 
-## Phase 14 — Testing & Specs
+## Phase 16 — Testing & Specs
 
 - [ ] Reading failing tests
 - [ ] Inferring requirements
 - [ ] Matching exact expectations
 - [ ] Debugging off-by-one errors
-- [ ] User-centric testing mindset
-
-@ PAUSE & PRACTICE
-- Treat tests as specs
-- Write code to satisfy tests exactly
 
 ---
 
-## Phase 15 — Performance Awareness (Later)
+## Phase 17 — Performance Awareness (Later)
 
 - [ ] Re-render causes
 - [ ] Memoization concepts
 - [ ] `React.memo`
 - [ ] When NOT to optimize
 
-@ PAUSE & PRACTICE
-- Optimize only after measuring
-- Practice removing unnecessary memoization
-
-> Optimization without understanding is a bug.
-
 ---
 
-## Phase 16 — Advanced / JS-Heavy (Do NOT Block On)
+## Phase 18 — Advanced / JS-Heavy (Optional)
 
 - [ ] Prototypes internals
 - [ ] Garbage collection details
 - [ ] WeakMap / WeakSet
 - [ ] Design patterns
 - [ ] Advanced memory profiling
-
-@ OPTIONAL PAUSE
-- Explore selectively, not sequentially
-
-> Useful, but **not required** for React proficiency.
