@@ -143,3 +143,11 @@ Answer only:
 1. Outputs 
 2. One short sentence stating tested behavior
 (Any other question you consider valid to grant passing)
+
+## PHASE 8+ MODE (STATEFUL)
+
+- Components may re-render multiple times.
+- `useState` and event handlers are allowed.
+- Exercises may describe render sequences.
+- Output may include multiple render steps.
+- Variable reassignment must NOT be used to simulate state.

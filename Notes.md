@@ -1782,3 +1782,44 @@ console.log(y.props.children);
 // 3
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Controlled vs Uncontrolled Inputs
+
+A controlled input is an input whose value is fully driven by React state and updated through events.
+
+> Syntax: 
+
+const [state, setState] = useState(initial)
+<input value={state} onChange={e => setState(e.target.value)} />
+
+Key rules
+
+ - State is the single source of truth
+ - onChange updates state, not variables
+ - Every state update causes a re-render
+ - Input value always reflects current state
+
+> Example 1 — controlled input
+
+function Field() {
+  const [text, setText] = React.useState("");
+
+  return (
+    <>
+      <input value={text} onChange={e => setText(e.target.value)} />
+      <span>{text}</span>
+    </>
+  );
+}
+
+// Initial render
+text === ""
+
+// After typing "a"
+text === "a"
+
+// After typing "ab"
+text === "ab"
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

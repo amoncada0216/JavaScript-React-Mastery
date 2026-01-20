@@ -89,6 +89,69 @@
 
 ---
 
+## Phase 3.5 — JavaScript Essentials (Assumed in React)
+*(Placed between Phase 3 and Phase 4)*
+
+These are **tools**, not deep theory, but they **must be known** and are **used constantly in React**.
+
+### Strings
+- [ ] `.includes()`
+- [ ] `.toLowerCase()` / `.toUpperCase()`
+- [ ] `.trim()`
+- [ ] `.startsWith()` / `.endsWith()`
+- [ ] `.length`
+
+### Arrays
+- [ ] `.includes()`
+- [ ] `.some()`
+- [ ] `.every()`
+- [ ] `.find()`
+- [ ] `.findIndex()`
+- [ ] `.slice()`
+- [ ] `.concat()`
+
+### Booleans & Conditions
+- [ ] Short-circuit logic (`&&`, `||`)
+- [ ] Negation (`!`)
+- [ ] Guard clauses in expressions
+
+> Rule:  
+> These utilities are **assumed knowledge** and may be used freely in all later phases without reintroduction.
+
+---
+
+## Phase 3.6 — JavaScript & React Assumptions (Explicit)
+
+These are **assumed primitives** that WILL appear naturally in React code.
+
+### JavaScript (Non-Optional)
+- [ ] `Array.isArray()`
+- [ ] `Object.keys() / Object.values() / Object.entries()`
+- [ ] Shallow copy patterns (`{ ...obj }`, `[...arr]`)
+- [ ] Optional chaining with functions (`fn?.()`)
+- [ ] Defaulting patterns (`||`, `??`)
+- [ ] String → number coercion (`Number()`, `parseInt`)
+- [ ] Falsy checks in conditions (`if (!value)`)
+
+### React-Specific Assumptions
+- [ ] JSX attribute spreading (`<Comp {...props} />`)
+- [ ] Inline functions in JSX
+- [ ] Event object reuse rules
+- [ ] Synthetic events (conceptual, not API)
+- [ ] `key` as identity, not index
+- [ ] State setters are async (conceptual)
+
+### Mental Model Rules (Explicit)
+- [ ] “Derived data is NOT state”
+- [ ] “Render ≠ commit”
+- [ ] “Re-render ≠ DOM update”
+- [ ] “Props/state are snapshots per render”
+
+> Rule:
+> Anything in Phase 3.5–3.6 is **allowed everywhere** later without warning.
+
+---
+
 ## Phase 4 — State Fundamentals (JS + React Boundary)
 
 - [x] `useState` basics
@@ -165,12 +228,12 @@
 
 ## Phase 8 — Controlled Inputs (Forms)
 
-- [ ] Controlled vs uncontrolled inputs
-- [ ] Single source of truth
-- [ ] Input → state → UI loop
-- [ ] Transforming input safely
-- [ ] Avoiding cursor bugs
-- [ ] Validation basics
+- [x] Controlled vs uncontrolled inputs
+- [x] Single source of truth
+- [x] Input → state → UI loop
+- [x] Transforming input safely
+- [x] Avoiding cursor bugs
+- [x] Validation basics
 
 @ PAUSE & PRACTICE (EMPLOYABILITY CHECK)
 - Build forms without bugs
