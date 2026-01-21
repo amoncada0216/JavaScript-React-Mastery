@@ -10,7 +10,7 @@
 
 @ Imperative basics (must be readable fluently)
 
-- [ ] for
+- [x] for
 - [ ] while / do…while
 - [ ] for…of
 - [ ] for…in
