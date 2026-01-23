@@ -1856,3 +1856,44 @@ Rules:
 [1, 2, 3].includes("1"); // false
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .some
+
+.some() checks whether at least one element in an array satisfies a condition.
+
+const cart = [
+  { id: 1, qty: 2 },
+  { id: 3, qty: 1 }
+];
+
+const product = { id: 3 };
+
+const exists = cart.some(item => item.id === product.id); 
+
+> Mechanically:
+
+It iterates over the array from start to end.
+For each element, it runs the provided test function.
+
+If the test returns true for any element:
+ - iteration stops immediately
+ - .some() returns true
+If no element passes the test:
+ - .some() returns false
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .find
+
+Iterates over an array
+Returns the first element that satisfies a condition
+Stops immediately when it finds a match
+
+> Syntax: array.find(element => condition)
+
+const item = cart.find(i => i.id === targetId);
+
+
+
+
+
