@@ -1,4 +1,4 @@
-# Security — Mastery Map 
+# Security — Mastery Map
 
 ## 1 — Security Mental Model (First Principles)
 
@@ -213,5 +213,5 @@ You’re done when you can:
 - [ ] Threat-model a feature before coding
 - [ ] Explain why a vuln exists
 - [ ] Predict attack paths
-- [ ] Know what *not* to store on the client
+- [ ] Know what _not_ to store on the client
 - [ ] Design systems assuming compromise

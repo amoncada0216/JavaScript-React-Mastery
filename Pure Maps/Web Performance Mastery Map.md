@@ -145,7 +145,7 @@
 - [ ] CLS (Cumulative Layout Shift)
 - [ ] INP (Interaction to Next Paint)
 - [ ] What actually improves each
-- [ ] What *doesn’t* matter
+- [ ] What _doesn’t_ matter
 
 ---
 

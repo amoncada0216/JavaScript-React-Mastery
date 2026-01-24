@@ -1,4 +1,4 @@
-# Redux — MASTER MAP 
+# Redux — MASTER MAP
 
 ## PHASE 0 — Why Redux Exists (Foundational Truth)
 

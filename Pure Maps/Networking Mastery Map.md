@@ -1,4 +1,4 @@
-# Networking — Mastery Map 
+# Networking — Mastery Map
 
 ## 1 — What Networking Really Is
 

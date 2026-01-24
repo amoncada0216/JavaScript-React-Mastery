@@ -1859,7 +1859,7 @@ Rules:
 
 # .some
 
-.some() checks whether at least one element in an array satisfies a condition.
+.some() checks whether at least one element in an array satisfies a condition. Returns boolean.
 
 const cart = [
   { id: 1, qty: 2 },
@@ -1881,19 +1881,395 @@ If the test returns true for any element:
 If no element passes the test:
  - .some() returns false
 
+[1, 3, 5].some(n => n > 4)   // true
+[1, 3, 5].some(n => n > 10)  // false
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # .find
 
-Iterates over an array
-Returns the first element that satisfies a condition
-Stops immediately when it finds a match
+ - Iterates over an array
+ - Returns the first element that satisfies a condition
+ - Stops immediately when it finds a match
 
 > Syntax: array.find(element => condition)
 
 const item = cart.find(i => i.id === targetId);
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# while Loop
+
+Repeats a block of code
+As long as a condition is true
+The condition is checked before every iteration
+
+> Syntax: 
+
+while (condition) {
+  // code
+}
+
+Something inside the loop must eventually make the condition false. If not → infinite loop.
+
+> Example (simple counter)
+
+let i = 0;
+
+while (i < 3) {
+  console.log(i);
+  i++;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# do…while Loop
+
+ - Executes the loop body first
+ - Checks the condition after the body runs
+ - Therefore, it runs at least once, even if the condition is false
+
+> Syntax:
+
+do {
+  // code
+} while (condition);
+
+> Key difference vs while
+
+ - while	    before first run
+ - do…while	  after first run
+
+> Example (condition false at start)
+
+let i = 3;
+
+do {
+  console.log(i);
+  i--;
+} while (i < 0);
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# for…of Loop
+
+Iterates over values in an iterable.
+
+> Syntax:
+
+for (const value of iterable) {
+  // code
+}
+
+> Example (array)
+
+const arr = [10, 20, 30];
+
+for (const n of arr) {
+  console.log(n);
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# for…in Loop
+
+Iterates over keys of an object.
+
+> Syntax:
+
+for (const key in object) {
+  // code
+}
+
+> Example (object)
+
+const user = {
+  name: "Ana",
+  age: 30
+};
+
+for (const key in user) {
+  console.log(key, user[key]);
+}
+
+// name Ana
+// age 30
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Number() and parseInt()
+
+> Number() — strict
+
+Number("5")     // 5
+Number("5.2")   // 5.2
+Number("")      // 0
+Number("abc")   // NaN
+
+>parseInt() — forgiving
+
+parseInt("5")      // 5
+parseInt("5px")    // 5
+parseInt("5.9")    // 5
+parseInt("abc")    // NaN
+
+Number("10px")   // NaN
+parseInt("10px") // 10
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .every()
+
+Returns true if all elements satisfy a condition.
+Returns false if any one fails.
+
+> Syntax: 
+
+array.every(item => condition)
+
+> Examples:
+
+[2, 4, 6].every(n => n % 2 === 0)   // true
+[2, 3, 6].every(n => n % 2 === 0)   // false
+
+> Edge case (important):
+
+[].every(() => false) // true
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .find()
+
+Returns the first element that matches a condition.
+Returns undefined if none match.
+
+> Syntax: 
+
+array.find(item => condition)
+
+> Examples:
+
+[1, 3, 5].find(n => n > 2)   // 3
+[1, 3, 5].find(n => n > 10)  // undefined
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .findIndex()
+
+Returns the index of the first element that matches a condition.
+Returns -1 if none match.
+
+> Syntax: 
+
+array.findIndex(item => condition)
+
+> Examples:
+
+[1, 3, 5].findIndex(n => n === 3)  // 1
+[1, 3, 5].findIndex(n => n === 9)  // -1
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .slice()
+
+Returns a shallow copy of part (or all) of an array.
+Does NOT mutate the original array.
+
+> Syntax: 
+
+array.slice(start, end)
+
+> Examples:
+
+[1, 2, 3].slice()        // [1, 2, 3]
+[1, 2, 3].slice(1)       // [2, 3]
+[1, 2, 3].slice(0, 2)    // [1, 2]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# .concat()
+
+Returns a new array by joining arrays or values.
+Does not mutate the original array.
+
+> Syntax: 
+
+array.concat(valueOrArray)
+
+> Examples:
+
+[1, 2].concat(3)        // [1, 2, 3]
+[1, 2].concat([3, 4])   // [1, 2, 3, 4]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Array.isArray()
+
+Checks if a value is an array.
+
+> Examples:
+
+Array.isArray([])        // true
+Array.isArray({})        // false
+Array.isArray("hi")      // false
+Array.isArray(null)      // false
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Object.keys()
+
+Returns an array of a given object’s own enumerable string-keyed property names.
+
+ - Only includes own properties, not inherited ones
+ - Ignores symbol keys
+ - Order follows property insertion rules
+ - Always returns a new array
+
+> Example 1 — basic object
+
+const obj = { a: 1, b: 2, c: 3 }
+
+console.log(Object.keys(obj))
+
+// ["a", "b", "c"]
+
+> Example 2 — numeric-like keys ordering
+
+const obj = {
+  2: "b",
+  1: "a",
+  x: "c"
+}
+
+console.log(Object.keys(obj))
+
+// ["1", "2", "x"]
 
 
+> Example 3 — array input
 
+const arr = ["a", "b", "c"]
 
+console.log(Object.keys(arr))
+
+// ["0", "1", "2"]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Object.values()
+
+Returns an array of a given object’s own enumerable string-keyed property values.
+
+ - Only own enumerable properties are included
+ - Order matches Object.keys() for the same object
+ - Symbol-keyed properties are ignored
+ - Always returns a new array
+
+> Example 1 — plain object
+
+const obj = { a: 1, b: 2 }
+
+console.log(Object.values(obj))
+
+// [1, 2]
+
+> Example 2 — numeric-like keys ordering
+
+const obj = { 2: "b", 1: "a", c: "x" }
+
+console.log(Object.values(obj))
+
+// ["a", "b", "x"]
+
+> Example 3 — array as object
+
+const arr = ["x", "y"]
+
+console.log(Object.values(arr))
+
+// ["x", "y"]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Object.entries()
+
+Returns an array of a given object’s own enumerable string-keyed property [key, value] pairs.
+
+ - Only own enumerable properties are included
+ - Order matches Object.keys() / Object.values()
+ - Each entry is a two-item array
+ - Always returns a new array
+
+> Example 1 — plain object
+
+const obj = { a: 1, b: 2 }
+
+console.log(Object.entries(obj))
+
+// [["a", 1], ["b", 2]]
+
+> Example 2 — numeric-like keys ordering
+
+const obj = { 2: "b", 1: "a", c: "x" }
+
+console.log(Object.entries(obj))
+
+// [["1", "a"], ["2", "b"], ["c", "x"]]
+
+> Example 3 — array as object
+
+const arr = ["x", "y"]
+
+console.log(Object.entries(arr))
+
+// [["0", "x"], ["1", "y"]]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Shallow copy patterns ({ ...obj }, [...arr])
+
+Creates a new object or array with copied top-level references from the original.
+
+ - Only the first level is copied
+ - Nested objects/arrays keep the same references
+ - Original container is not mutated
+ - Referential equality changes at the top level only
+
+> Example 1 — object shallow copy
+
+const original = { a: 1, b: 2 }
+const copy = { ...original }
+
+copy.a = 10
+
+console.log(original)
+console.log(copy)
+
+// { a: 1, b: 2 }
+// { a: 10, b: 2 }
+
+> Example 2 — nested object reference
+
+const original = { a: { x: 1 } }
+const copy = { ...original }
+
+copy.a.x = 99
+
+console.log(original.a.x)
+console.log(copy.a.x)
+
+// 99
+// 99
+
+> Example 3 — array shallow copy
+
+const original = [1, 2, 3]
+const copy = [...original]
+
+copy.push(4)
+
+console.log(original)
+console.log(copy)
+
+// [1, 2, 3]
+// [1, 2, 3, 4]

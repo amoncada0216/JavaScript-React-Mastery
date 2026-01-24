@@ -181,7 +181,7 @@
 
 You’re done when you can:
 
-- [ ] Decide *not* to write a test
+- [ ] Decide _not_ to write a test
 - [ ] Write tests that survive refactors
 - [ ] Diagnose flaky tests quickly
 - [ ] Trust test failures
