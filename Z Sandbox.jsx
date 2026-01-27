@@ -1,20 +1,25 @@
 function App() {
-  const [state, setState] = React.useState({ a: { x: 1 } });
+  const [count, setCount] = React.useState(0)
 
-  console.log(state.a.x);
+  const obj = { value: count }
+
+  React.useEffect(() => {
+    console.log("effect", obj.value)
+
+    return () => {
+      console.log("cleanup", obj.value)
+    }
+  }, [obj])
+
+  console.log("render", count)
 
   return (
-    <button
-      onClick={() => {
-        const next = { ...state };
-        next.a.x = 2;
-        setState(next);
-      }}
-    >
-      Update
+    <button onClick={() => setCount(count + 1)}>
+      Click
     </button>
-  );
+  )
 }
 
-// initial render: 1
-// click once: 2
+// 1st render logs "render 0", after commit logs "effect 0"
+// user clicks so set counts = 1
+// 2nd render runs, logs "render 1", after commit logs "effect 1", then logs "cleanup 0"

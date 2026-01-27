@@ -2273,3 +2273,62 @@ console.log(copy)
 
 // [1, 2, 3]
 // [1, 2, 3, 4]
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Call Stack vs Task Queue
+
+The call stack executes synchronous code immediately, while the task queue holds asynchronous callbacks waiting for the stack to become empty.
+
+ - Only the call stack executes code
+ - Tasks never run directly from the queue
+ - The event loop moves tasks to the stack only when it is empty
+ - Stack always has priority over the task queue
+
+> Example 1 — synchronous stack first
+
+console.log("A")
+
+setTimeout(() => {
+  console.log("B")
+}, 0)
+
+console.log("C")
+
+// A
+// C
+// B
+
+> Example 2 — blocking the stack
+
+setTimeout(() => {
+  console.log("timeout")
+}, 0)
+
+for (let i = 0; i < 1e7; i++) {}
+
+console.log("done")
+
+// done
+// timeout
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Promise lifecycle
+
+A Promise is an object that represents a future value that will settle exactly once.
+
+A Promise has three possible states:
+
+ - Pending
+ - Fulfilled
+ - Rejected
+
+Once it leaves pending, it is immutable forever.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# async / await
+
+This is syntax over Promises, not a new async model. Everything it does maps directly to the Promise lifecycle you just learned.
+
