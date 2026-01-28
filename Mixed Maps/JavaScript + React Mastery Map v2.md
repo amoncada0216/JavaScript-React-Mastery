@@ -275,21 +275,21 @@
 
 ## Phase 20 — Async JavaScript (React-Aware)
 
-- [ ] Promise lifecycle
-- [ ] `async / await`
-- [ ] Async error handling
-- [ ] Sequential vs parallel execution
-- [ ] Race conditions
-- [ ] Cancellation patterns
+- [x] Promise lifecycle
+- [x] `async / await`
+- [x] Async error handling
+- [x] Sequential vs parallel execution
+- [x] Race conditions
+- [x] Cancellation patterns
 
 ---
 
 ## Phase 21 — Refs & Escape Hatches
 
-- [ ] `useRef` vs state
-- [ ] Persistent mutable values
-- [ ] DOM access without re-render
-- [ ] Legitimate vs smelly ref usage
+- [x] `useRef` vs state
+- [x] Persistent mutable values
+- [x] DOM access without re-render
+- [x] Legitimate vs smelly ref usage
 
 ---
 

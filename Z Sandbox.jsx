@@ -1,25 +1,24 @@
-function App() {
-  const [count, setCount] = React.useState(0)
+async function test() {
+  console.log("A");
 
-  const obj = { value: count }
+  const value = await Promise.resolve(1);
 
-  React.useEffect(() => {
-    console.log("effect", obj.value)
+  console.log("B", value);
 
-    return () => {
-      console.log("cleanup", obj.value)
-    }
-  }, [obj])
-
-  console.log("render", count)
-
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Click
-    </button>
-  )
+  return value;
 }
 
-// 1st render logs "render 0", after commit logs "effect 0"
-// user clicks so set counts = 1
-// 2nd render runs, logs "render 1", after commit logs "effect 1", then logs "cleanup 0"
+console.log("C");
+
+test().then((v) => {
+  console.log("D", v);
+});
+
+console.log("E");
+
+
+// C
+// A
+// E
+// B 1
+// D 1

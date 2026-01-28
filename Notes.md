@@ -2332,3 +2332,114 @@ Once it leaves pending, it is immutable forever.
 
 This is syntax over Promises, not a new async model. Everything it does maps directly to the Promise lifecycle you just learned.
 
+Declaring a function async means:
+
+ - The function always returns a Promise
+ - A returned value becomes a fulfilled Promise
+ - A thrown error becomes a rejected Promise
+
+So: 
+
+async function f() {
+  return 1
+}
+
+Is equivalent to:
+
+function f() {
+  return Promise.resolve(1)
+}
+
+And:
+
+async function f() {
+  throw new Error("fail")
+}
+
+Is equivalent to:
+
+function f() {
+  return Promise.reject(new Error("fail"))
+}
+
+Mechanics:
+
+ - Pause the async function
+ - Exit the call stack
+ - Wait for the Promise to settle
+ - Resume the function later with:
+    - the fulfilled value, or
+    - a thrown error if rejected
+
+Important:
+
+ - await does not block JavaScript
+ - It only pauses this async function
+ - Resumption happens as a microtask
+
+> The hidden rewrite (critical)
+
+This:
+
+async function f() {
+  const x = await p
+  return x + 1
+}
+
+Is equivalent to:
+
+function f() {
+  return p.then(x => x + 1)
+}
+
+This equivalence explains:
+
+ - error propagation
+ - ordering
+ - why try / catch works
+ - why race conditions exist
+
+Error handling with await
+
+async function f() {
+  try {
+    const x = await p
+    return x
+  } catch (e) {
+    return "fallback"
+  }
+}
+
+Mechanics:
+
+ - Rejected Promise → thrown error at await
+ - try / catch works only because await unwraps the Promise
+
+Without await, try / catch does nothing:
+
+try {
+  p.then(...)
+} catch (e) {
+  // never runs
+}
+
+async / await is Promise chaining with pauses, not parallelism or blocking.
+
+Why this matters for React (preview)
+
+ - Effects often contain async functions
+ - Errors must be caught with try / catch
+ - await yields control, enabling React scheduling
+ - Race conditions appear when multiple awaits overlap
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Async Error Handling
+
+ - Async errors live inside Promises, not in normal control flow.
+ - try / catch only works with async code when you use await.
+ - A rejected Promise is invisible until it is awaited or .catched.
+ - Every Promise must be handled somewhere, or you get unhandled rejections.
+ - In React effects, you catch errors and store them in state — you do not throw them.
+
+Async errors don’t throw until you await them, and React can’t catch them for you.
