@@ -1,4 +1,4 @@
-# JavaScript — MASTER MAP
+# JavaScript — MASTER MAP (UPDATED)
 
 ## PHASE 0 — Programming & Computing Foundations
 
@@ -14,10 +14,10 @@
 ### Looping (Absolute Fluency)
 
 - [x] `for`
-- [ ] `while`
-- [ ] `do…while`
-- [ ] `for…of`
-- [ ] `for…in`
+- [x] `while`
+- [x] `do…while`
+- [x] `for…of`
+- [x] `for…in`
 
 ---
 
@@ -70,7 +70,7 @@
 - [x] Ternary operator
 - [x] Optional chaining (`?.`)
 - [x] Nullish coalescing (`??`)
-- [ ] Defaulting (`||` vs `??`)
+- [x] Defaulting (`||` vs `??`)
 - [ ] Bitwise operators
 - [ ] Comma operator (edge)
 
@@ -124,13 +124,13 @@
 - [x] `.startsWith` / `.endsWith`
 - [x] `.toLowerCase` / `.toUpperCase`
 - [x] `.trim`
-- [ ] `.slice`
+- [x] `.slice`
 - [ ] `.substring`
 - [ ] `.split`
 - [ ] `.join`
 - [ ] Template literals
 - [ ] Unicode / UTF-16
-- [ ] String normalization
+- [x] String normalization
 
 ---
 
@@ -142,15 +142,15 @@
 - [x] `filter`
 - [x] `reduce`
 - [x] Defensive counting
-- [ ] `some`
-- [ ] `every`
-- [ ] `find`
-- [ ] `findIndex`
-- [ ] `slice`
-- [ ] `concat`
+- [x] `some`
+- [x] `every`
+- [x] `find`
+- [x] `findIndex`
+- [x] `slice`
+- [x] `concat`
 - [ ] `sort` (mutation trap)
 - [ ] `flat`
-- [ ] `Array.isArray`
+- [x] `Array.isArray`
 - [ ] Typed arrays
 
 ---
@@ -162,9 +162,9 @@
 - [x] Dynamic keys
 - [x] Mutation vs copying
 - [x] Shallow copy
-- [ ] `Object.keys`
-- [ ] `Object.values`
-- [ ] `Object.entries`
+- [x] `Object.keys`
+- [x] `Object.values`
+- [x] `Object.entries`
 - [ ] Object iteration
 - [ ] Deep cloning strategies
 - [ ] Property descriptors
@@ -175,78 +175,78 @@
 ## PHASE 10 — Equality & Identity
 
 - [x] Primitive equality
-- [ ] Reference equality
+- [x] Reference equality
 - [ ] Shallow vs deep compare
 - [ ] Structural sharing
-- [ ] Identity bugs in state systems
+- [x] Identity bugs in state systems
 
 ---
 
 ## PHASE 11 — Errors & Defensive JS
 
-- [ ] `try / catch`
-- [ ] Throwing errors
-- [ ] Error objects
+- [x] `try / catch`
+- [x] Throwing errors
+- [x] Error objects
 - [ ] Custom errors
-- [ ] Guard clauses
-- [ ] Fail-fast philosophy
+- [x] Guard clauses
+- [x] Fail-fast philosophy
 - [ ] Defensive APIs
 
 ---
 
 ## PHASE 12 — Async JavaScript (Critical)
 
-- [ ] Callback patterns
-- [ ] Promises
-- [ ] Promise states
-- [ ] `.then` chains
-- [ ] `async / await`
-- [ ] Error propagation
-- [ ] Parallel vs sequential
-- [ ] `Promise.all`
-- [ ] `Promise.race`
-- [ ] `Promise.any`
-- [ ] AbortController
+- [x] Callback patterns
+- [x] Promises
+- [x] Promise states
+- [x] `.then` chains
+- [x] `async / await`
+- [x] Error propagation
+- [x] Parallel vs sequential
+- [x] `Promise.all`
+- [x] `Promise.race`
+- [x] `Promise.any`
+- [x] AbortController
 
 ---
 
 ## PHASE 13 — Event Loop & Concurrency
 
-- [ ] Event loop mental model
-- [ ] Call stack vs queue
-- [ ] Microtasks vs macrotasks
-- [ ] Timers
-- [ ] Blocking vs non-blocking
-- [ ] Starvation scenarios
+- [x] Event loop mental model
+- [x] Call stack vs queue
+- [x] Microtasks vs macrotasks
+- [x] Timers
+- [x] Blocking vs non-blocking
+- [x] Starvation scenarios
 
 ---
 
 ## PHASE 14 — Modules & Architecture
 
-- [ ] ES modules
-- [ ] Import / export mechanics
-- [ ] Live bindings
-- [ ] Circular deps
-- [ ] Side-effect control
+- [x] ES modules
+- [x] Import / export mechanics
+- [x] Live bindings
+- [x] Circular deps
+- [x] Side-effect control
 
 ---
 
 ## PHASE 15 — Prototypes & Internals
 
-- [ ] Prototype chain
-- [ ] `__proto__` vs `prototype`
-- [ ] Constructor functions
-- [ ] `new`
-- [ ] Method lookup
+- [x] Prototype chain
+- [x] `__proto__` vs `prototype`
+- [x] Constructor functions
+- [x] `new`
+- [x] Method lookup
 - [ ] Inheritance patterns
 
 ---
 
 ## PHASE 16 — Memory & Performance
 
-- [ ] Garbage collection
+- [x] Garbage collection
 - [ ] Memory leaks
-- [ ] Closure retention
+- [x] Closure retention
 - [ ] Allocation patterns
 - [ ] Performance profiling
 
@@ -256,20 +256,20 @@
 
 - [ ] `Date`
 - [ ] `Intl`
-- [ ] `JSON`
+- [x] `JSON`
 - [ ] `RegExp` (full mastery)
-- [ ] `Map`
-- [ ] `Set`
-- [ ] `WeakMap`
-- [ ] `WeakSet`
+- [x] `Map`
+- [x] `Set`
+- [x] `WeakMap`
+- [x] `WeakSet`
 
 ---
 
 ## PHASE 18 — Environment APIs
 
-- [ ] Browser APIs (DOM, events)
-- [ ] Fetch API
-- [ ] Storage APIs
+- [x] Browser APIs (DOM, events)
+- [x] Fetch API
+- [x] Storage APIs
 - [ ] Node.js globals
 - [ ] File system basics
 
@@ -290,9 +290,9 @@
 
 You are a JS god when you can:
 
-- [ ] Predict coercion without testing
-- [ ] Debug async by reasoning
-- [ ] Explain event loop verbally
-- [ ] Spot reference bugs instantly
-- [ ] Write mutation-free code by reflex
+- [x] Predict coercion without testing
+- [x] Debug async by reasoning
+- [x] Explain event loop verbally
+- [x] Spot reference bugs instantly
+- [x] Write mutation-free code by reflex
 - [ ] Read JS specs without fear

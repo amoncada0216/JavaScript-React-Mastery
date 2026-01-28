@@ -295,40 +295,40 @@
 
 ## Phase 22 — Modules & Architecture
 
-- [ ] ES modules
-- [ ] Named vs default exports
-- [ ] Module boundaries
-- [ ] Separation of concerns
-- [ ] File organization
-- [ ] Lifting vs colocating state
-- [ ] Custom hooks as composition
+- [x] ES modules
+- [x] Named vs default exports
+- [x] Module boundaries
+- [x] Separation of concerns
+- [x] File organization
+- [x] Lifting vs colocating state
+- [x] Custom hooks as composition
 
 ---
 
 ## Phase 23 — Performance Awareness
 
-- [ ] Why components re-render
-- [ ] Referential equality in practice
-- [ ] Memoization concepts
-- [ ] `React.memo`
-- [ ] When NOT to optimize
+- [x] Why components re-render
+- [x] Referential equality in practice
+- [x] Memoization concepts
+- [x] `React.memo`
+- [x] When NOT to optimize
 
 ---
 
 ## Phase 24 — Advanced JavaScript
 
-- [ ] Prototypes (mental model)
-- [ ] Garbage collection basics
-- [ ] WeakMap / WeakSet
-- [ ] Design patterns
-- [ ] State machines (conceptual)
+- [x] Prototypes (mental model)
+- [x] Garbage collection basics
+- [x] WeakMap / WeakSet
+- [x] Design patterns
+- [x] State machines (conceptual)
 
 ---
 
 ## Phase 25 — Professional Judgment Layer
 
-- [ ] React as deterministic system
-- [ ] Idempotence over control
-- [ ] When duplication is acceptable
-- [ ] When abstraction is harmful
-- [ ] Shipping vs refactoring timing
+- [x] React as deterministic system
+- [x] Idempotence over control
+- [x] When duplication is acceptable
+- [x] When abstraction is harmful
+- [x] Shipping vs refactoring timing
