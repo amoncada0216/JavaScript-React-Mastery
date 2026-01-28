@@ -1,4 +1,5 @@
-# React — MASTER MAP
+```md
+# React — MASTER MAP (UPDATED)
 
 ## PHASE 0 — React Prerequisites (Mental Readiness)
 
@@ -12,15 +13,15 @@
 
 ## PHASE 1 — React Core Mental Model (NON-NEGOTIABLE)
 
-- [ ] React is a **renderer**, not a framework
-- [ ] UI = function(state)
-- [ ] Components are **pure functions**
-- [ ] Render ≠ DOM update
-- [ ] Re-render ≠ re-mount
-- [ ] Commit phase vs render phase
-- [ ] State & props are **snapshots**
-- [ ] React controls when functions run
-- [ ] Reconciliation (diffing concept)
+- [x] React is a **renderer**, not a framework
+- [x] UI = function(state)
+- [x] Components are **pure functions**
+- [x] Render ≠ DOM update
+- [x] Re-render ≠ re-mount
+- [x] Commit phase vs render phase
+- [x] State & props are **snapshots**
+- [x] React controls when functions run
+- [x] Reconciliation (diffing concept)
 
 ---
 
@@ -32,9 +33,9 @@
 - [x] Rendering `null`, `false`, `undefined`
 - [x] Fragments
 - [x] Conditional JSX mistakes
-- [ ] JSX attribute spreading
-- [ ] Children normalization
-- [ ] JSX is NOT HTML
+- [x] JSX attribute spreading
+- [x] Children normalization
+- [x] JSX is NOT HTML
 
 ---
 
@@ -46,9 +47,9 @@
 - [x] Component composition
 - [x] Children prop
 - [x] Re-render rules
-- [ ] Component identity
-- [ ] Mount vs update vs unmount
-- [ ] When components remount unexpectedly
+- [x] Component identity
+- [x] Mount vs update vs unmount
+- [x] When components remount unexpectedly
 
 ---
 
@@ -61,7 +62,7 @@
 - [x] Async nature of setters
 - [x] Resetting state correctly
 - [x] Derived state vs source state
-- [ ] Lazy initialization edge cases
+- [x] Lazy initialization edge cases
 
 ---
 
@@ -73,32 +74,32 @@
 - [x] Parameterized handlers
 - [x] Shared handlers
 - [x] Closures inside handlers
-- [ ] Synthetic events (internals)
-- [ ] Event pooling (legacy knowledge)
+- [x] Synthetic events (internals)
+- [x] Event pooling (legacy knowledge)
 
 ---
 
 ## PHASE 6 — Rendering Logic & Control Flow
 
-- [ ] Conditional rendering (`&&`)
-- [ ] Ternary rendering
-- [ ] Guard rendering
-- [ ] Empty / loading / error states
-- [ ] Rendering fallbacks
-- [ ] Boolean edge cases (`0`, `""`)
-- [ ] Conditional component trees
+- [x] Conditional rendering (`&&`)
+- [x] Ternary rendering
+- [x] Guard rendering
+- [x] Empty / loading / error states
+- [x] Rendering fallbacks
+- [x] Boolean edge cases (`0`, `""`)
+- [x] Conditional component trees
 
 ---
 
 ## PHASE 7 — Lists & Identity (CRITICAL)
 
-- [ ] Rendering arrays
-- [ ] `key` as identity (NOT index)
-- [ ] Why index keys break UI
-- [ ] Stable vs unstable keys
-- [ ] Filtering before render
-- [ ] Sorting immutably
-- [ ] Reconciliation failures due to keys
+- [x] Rendering arrays
+- [x] `key` as identity (NOT index)
+- [x] Why index keys break UI
+- [x] Stable vs unstable keys
+- [x] Filtering before render
+- [x] Sorting immutably
+- [x] Reconciliation failures due to keys
 
 ---
 
@@ -110,130 +111,130 @@
 - [x] Transforming input safely
 - [x] Avoiding cursor bugs
 - [x] Validation basics
-- [ ] Derived validation state
-- [ ] Form submission lifecycle
+- [x] Derived validation state
+- [x] Form submission lifecycle
 
 ---
 
 ## PHASE 9 — Effects (`useEffect`) — THE HARD PART
 
-- [ ] Side effects vs pure render logic
-- [ ] Effect execution timing
-- [ ] Dependency arrays (truth, not myth)
-- [ ] Cleanup functions
-- [ ] Mount vs update effects
-- [ ] Avoiding infinite loops
-- [ ] Stale closures in effects
-- [ ] Effect vs event logic separation
+- [x] Side effects vs pure render logic
+- [x] Effect execution timing
+- [x] Dependency arrays (truth, not myth)
+- [x] Cleanup functions
+- [x] Mount vs update effects
+- [x] Avoiding infinite loops
+- [x] Stale closures in effects
+- [x] Effect vs event logic separation
 
 ---
 
 ## PHASE 10 — Advanced State Hooks
 
-- [ ] `useReducer`
-- [ ] Reducer purity rules
-- [ ] Action design
-- [ ] Local vs global reducers
-- [ ] `useRef` (escape hatch)
-- [ ] Mutable refs vs state
-- [ ] `useImperativeHandle`
+- [x] `useReducer`
+- [x] Reducer purity rules
+- [x] Action design
+- [x] Local vs global reducers
+- [x] `useRef` (escape hatch)
+- [x] Mutable refs vs state
+- [x] `useImperativeHandle`
 
 ---
 
 ## PHASE 11 — Context API
 
-- [ ] Context mental model
-- [ ] Provider re-render behavior
-- [ ] Avoiding over-rendering
-- [ ] Context vs props
-- [ ] Context as dependency injection
-- [ ] Context misuse patterns
+- [x] Context mental model
+- [x] Provider re-render behavior
+- [x] Avoiding over-rendering
+- [x] Context vs props
+- [x] Context as dependency injection
+- [x] Context misuse patterns
 
 ---
 
 ## PHASE 12 — Performance & Re-renders
 
-- [ ] Why components re-render
-- [ ] Referential equality traps
-- [ ] `React.memo`
-- [ ] `useCallback`
-- [ ] `useMemo`
-- [ ] When memoization hurts
-- [ ] Render profiling mindset
+- [x] Why components re-render
+- [x] Referential equality traps
+- [x] `React.memo`
+- [x] `useCallback`
+- [x] `useMemo`
+- [x] When memoization hurts
+- [x] Render profiling mindset
 
 ---
 
 ## PHASE 13 — Reconciliation & Fiber (Internals)
 
-- [ ] Fiber architecture (conceptual)
-- [ ] Incremental rendering
-- [ ] Priority lanes
-- [ ] Interruptible rendering
-- [ ] Concurrent rendering basics
+- [x] Fiber architecture (conceptual)
+- [x] Incremental rendering
+- [x] Priority lanes
+- [x] Interruptible rendering
+- [x] Concurrent rendering basics
 
 ---
 
 ## PHASE 14 — Async React & Concurrency
 
-- [ ] Concurrent rendering model
-- [ ] Transitions
-- [ ] `useTransition`
-- [ ] `useDeferredValue`
-- [ ] Tearing prevention
-- [ ] Scheduling vs rendering
+- [x] Concurrent rendering model
+- [x] Transitions
+- [x] `useTransition`
+- [x] `useDeferredValue`
+- [x] Tearing prevention
+- [x] Scheduling vs rendering
 
 ---
 
 ## PHASE 15 — Error Handling
 
-- [ ] Error boundaries
-- [ ] Render errors vs event errors
-- [ ] Recovery strategies
-- [ ] Fallback UIs
-- [ ] Logging patterns
+- [x] Error boundaries
+- [x] Render errors vs event errors
+- [x] Recovery strategies
+- [x] Fallback UIs
+- [x] Logging patterns
 
 ---
 
 ## PHASE 16 — Architecture & Scaling
 
-- [ ] Component responsibility boundaries
-- [ ] Smart vs dumb components
-- [ ] Feature-based structure
-- [ ] State colocation
-- [ ] Lifting state correctly
-- [ ] Avoiding prop drilling
-- [ ] Avoiding global state abuse
+- [x] Component responsibility boundaries
+- [x] Smart vs dumb components
+- [x] Feature-based structure
+- [x] State colocation
+- [x] Lifting state correctly
+- [x] Avoiding prop drilling
+- [x] Avoiding global state abuse
 
 ---
 
 ## PHASE 17 — Data Fetching Patterns
 
-- [ ] Fetch in effects
-- [ ] Loading & error states
-- [ ] Request cancellation
-- [ ] Race condition handling
-- [ ] Cache mental model
-- [ ] Stale data strategies
+- [x] Fetch in effects
+- [x] Loading & error states
+- [x] Request cancellation
+- [x] Race condition handling
+- [x] Cache mental model
+- [x] Stale data strategies
 
 ---
 
 ## PHASE 18 — Testing Mentality (React-Specific)
 
-- [ ] Test behavior, not implementation
-- [ ] Rendering states
-- [ ] User-event driven tests
-- [ ] Async test pitfalls
-- [ ] Debugging failing tests
+- [x] Test behavior, not implementation
+- [x] Rendering states
+- [x] User-event driven tests
+- [x] Async test pitfalls
+- [x] Debugging failing tests
 
 ---
 
 ## PHASE 19 — Ecosystem Awareness (Not Libraries)
 
-- [ ] React DevTools mastery
-- [ ] Strict Mode behavior
-- [ ] Double-invocation understanding
-- [ ] Dev vs prod differences
-- [ ] Version upgrade mindset
+- [x] React DevTools mastery
+- [x] Strict Mode behavior
+- [x] Double-invocation understanding
+- [x] Dev vs prod differences
+- [x] Version upgrade mindset
 
 ---
 
@@ -241,9 +242,10 @@
 
 You are a React god when you can:
 
-- [ ] Predict re-renders without tools
-- [ ] Explain effects timing verbally
-- [ ] Fix infinite loops instantly
-- [ ] Design state without refactors
-- [ ] Explain why a bug exists, not just fix it
-- [ ] Read React source without panic
+- [x] Predict re-renders without tools
+- [x] Explain effects timing verbally
+- [x] Fix infinite loops instantly
+- [x] Design state without refactors
+- [x] Explain why a bug exists, not just fix it
+- [x] Read React source without panic
+```

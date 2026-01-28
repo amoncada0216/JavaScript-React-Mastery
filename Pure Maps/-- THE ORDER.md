@@ -17,7 +17,7 @@
 
 ## Tier 2 — React & Application Architecture
 
-- [ ] React Mastery Map
+- [x] React Mastery Map
 - [ ] Redux Mastery Map
 - [ ] CSS Architecture Mastery Map
 

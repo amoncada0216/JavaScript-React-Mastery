@@ -8,8 +8,8 @@
 - [x] Truthy / falsy values
 - [x] Error handling basics
 - [x] Reading stack traces
-- [ ] Big-O notation (time / space)
-- [ ] Algorithmic thinking basics
+- [x] Big-O notation (time / space)
+- [x] Algorithmic thinking basics
 
 ### Looping (Absolute Fluency)
 
@@ -102,13 +102,13 @@
 - [ ] `NaN`, `Infinity`
 - [ ] `Number.isNaN`
 - [ ] `Number.isFinite`
-- [ ] `toFixed()` (returns string)
+- [x] `toFixed()` (returns string)
 - [ ] `toPrecision`
 - [ ] `Math.round`
-- [ ] `Math.floor`
-- [ ] `Math.ceil`
+- [x] `Math.floor`
+- [x] `Math.ceil`
 - [ ] `Math.trunc`
-- [ ] `Math.random`
+- [x] `Math.random`
 - [ ] `Math.min` / `Math.max`
 - [ ] `BigInt`
 - [ ] Safe integer limits
