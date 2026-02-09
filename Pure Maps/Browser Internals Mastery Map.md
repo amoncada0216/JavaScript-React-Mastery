@@ -1,14 +1,5 @@
 # Browser Internals — Logical Mastery Map (How the Browser Actually Works)
 
-Legend
-
-- [x] studied
-- [ ] pending
-
-This is the browser as a **runtime system**: parsing, execution, rendering, scheduling, storage, security.
-
----
-
 ## 1 — What a Browser Is (Reality First)
 
 - [ ] Browser vs engine vs process

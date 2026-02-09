@@ -1,4 +1,3 @@
-```md
 # React — MASTER MAP (UPDATED)
 
 ## PHASE 0 — React Prerequisites (Mental Readiness)

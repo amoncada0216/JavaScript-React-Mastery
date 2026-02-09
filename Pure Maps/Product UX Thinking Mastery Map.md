@@ -1,15 +1,5 @@
 # Product / UX Thinking — Logical Mastery Map (From Code Executor to Product Engineer)
 
-Legend
-
-- [x] studied
-- [ ] pending
-
-This is **thinking in outcomes**, not screens.  
-It’s what separates “implements tickets” from “builds the right thing”.
-
----
-
 ## 1 — What Product & UX Actually Are
 
 - [ ] Product ≠ UI
