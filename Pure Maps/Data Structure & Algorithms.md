@@ -6,27 +6,27 @@
 - [x] Time complexity vs real-world speed
 - [x] Space complexity tradeoffs
 - [x] Why constraints matter more than syntax
-- [ ] Why “works on small input” means nothing
+- [x] Why “works on small input” means nothing
 
 ---
 
 ## 2 — Complexity Fundamentals (Ground Truth)
 
-- [ ] Big O notation
-- [ ] Best, average, worst case
-- [ ] Amortized analysis
-- [ ] Constant factors reality
-- [ ] When Big O lies to you
+- [x] Big O notation
+- [x] Best, average, worst case
+- [x] Amortized analysis
+- [x] Constant factors reality
+- [x] When Big O lies to you
 
 ---
 
 ## 3 — Arrays & Strings
 
-- [ ] Static vs dynamic arrays
-- [ ] Indexing vs searching cost
-- [ ] Insertions and deletions
-- [ ] Two-pointer technique
-- [ ] Sliding window patterns
+- [x] Static vs dynamic arrays
+- [x] Indexing vs searching cost
+- [x] Insertions and deletions
+- [x] Two-pointer technique
+- [x] Sliding window patterns
 
 ---
 

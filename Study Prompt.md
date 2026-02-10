@@ -22,7 +22,9 @@ Flow:
 - Start with the most fundamental idea possible.
 - Explain it.
 - Ask me to restate it in my own words or answer a small check question.
-- Wait for my confirmation before moving on.
+- Review my question and depending on how well or bad it was, make another question or prompt for next  topic. 
 
 Goal:
 I want deep understanding, not speed. Treat this like teaching someone who wants to master the foundations perfectly.”
+
+Here is the study map: 

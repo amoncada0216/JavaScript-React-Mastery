@@ -290,9 +290,9 @@
 
 You are a JS god when you can:
 
-- [x] Predict coercion without testing
-- [x] Debug async by reasoning
-- [x] Explain event loop verbally
-- [x] Spot reference bugs instantly
-- [x] Write mutation-free code by reflex
+- [ ] Predict coercion without testing
+- [ ] Debug async by reasoning
+- [ ] Explain event loop verbally
+- [ ] Spot reference bugs instantly
+- [ ] Write mutation-free code by reflex
 - [ ] Read JS specs without fear

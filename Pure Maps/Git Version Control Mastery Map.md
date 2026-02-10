@@ -2,22 +2,22 @@
 
 ## 1 — What Git Actually Is
 
-- [ ] Git as a snapshot database (not diffs)
-- [ ] Local-first design
-- [ ] Why Git exists (coordination + rollback)
-- [ ] Repository vs working directory
-- [ ] What Git does NOT track
+- [x] Git as a snapshot database (not diffs)
+- [x] Local-first design
+- [x] Why Git exists (coordination + rollback)
+- [x] Repository vs working directory
+- [x] What Git does NOT track
 
 ---
 
 ## 2 — Core Mental Model (Non-Negotiable)
 
-- [ ] Working tree
-- [ ] Staging area (index)
-- [ ] Commit objects
-- [ ] Commit graph (DAG)
-- [ ] HEAD pointer
-- [ ] Why understanding this prevents panic
+- [x] Working tree
+- [x] Staging area (index)
+- [x] Commit objects
+- [x] Commit graph (DAG)
+- [x] HEAD pointer
+- [x] Why understanding this prevents panic
 
 ---
 

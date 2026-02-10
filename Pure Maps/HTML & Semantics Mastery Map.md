@@ -2,46 +2,46 @@
 
 ## 1 — What HTML Actually Is
 
-- [ ] HTML is a document language, not a UI framework
-- [ ] Content vs presentation vs behavior
-- [ ] HTML as the browser’s first API
-- [ ] Why semantics matter more than styling
-- [ ] Progressive enhancement mindset
+- [x] HTML is a document language, not a UI framework
+- [x] Content vs presentation vs behavior
+- [x] HTML as the browser’s first API
+- [x] Why semantics matter more than styling
+- [x] Progressive enhancement mindset
 
 ---
 
 ## 2 — Document Structure (Non-Negotiable)
 
-- [ ] `<!DOCTYPE>`
-- [ ] `<html>`, `<head>`, `<body>`
-- [ ] Metadata (`title`, `meta`, `link`)
-- [ ] Character encoding
-- [ ] Viewport configuration
-- [ ] Language declaration (`lang`)
+- [x] `<!DOCTYPE>`
+- [x] `<html>`, `<head>`, `<body>`
+- [x] Metadata (`title`, `meta`, `link`)
+- [x] Character encoding
+- [x] Viewport configuration
+- [x] Language declaration (`lang`)
 
 ---
 
 ## 3 — Semantic Sectioning Elements
 
-- [ ] `<header>`
-- [ ] `<nav>`
-- [ ] `<main>`
-- [ ] `<section>`
-- [ ] `<article>`
-- [ ] `<aside>`
-- [ ] `<footer>`
-- [ ] When to use each (meaning, not layout)
-- [ ] Nesting rules and common mistakes
+- [x] `<header>`
+- [x] `<nav>`
+- [x] `<main>`
+- [x] `<section>`
+- [x] `<article>`
+- [x] `<aside>`
+- [x] `<footer>`
+- [x] When to use each (meaning, not layout)
+- [x] Nesting rules and common mistakes
 
 ---
 
 ## 4 — Headings & Document Outline
 
-- [ ] `<h1>`–`<h6>` semantics
-- [ ] Single `<h1>` rule (and exceptions)
-- [ ] Heading hierarchy
-- [ ] Why skipping levels breaks accessibility
-- [ ] Headings vs visual size
+- [x] `<h1>`–`<h6>` semantics
+- [x] Single `<h1>` rule (and exceptions)
+- [x] Heading hierarchy
+- [x] Why skipping levels breaks accessibility
+- [x] Headings vs visual size
 
 ---
 
